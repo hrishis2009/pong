@@ -6,7 +6,7 @@ function cookies() {
 let const cookies = cookies();
 
 if (cookies !== true) {
-	window.alert("Cookies are not enales for this website. Please enable cookies so you can enjoy a better experience");
+	window.alert("Cookies are not enabled for this website. Please enable cookies so you can enjoy a better experience");
 }
 
 function online() {
