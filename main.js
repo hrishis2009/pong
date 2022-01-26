@@ -1,4 +1,15 @@
-function cookies() {
+function screenHeight () { 
+	let x = window.screen.width;
+	return x;
+}
+
+var screenHeight = screenHeight();
+var homePanelHeight = screenHeight * 0.5;
+
+document.getElementById("homescreen_panel").style.height = homePanelHeight;
+
+
+/*function cookies() {
 	navigator.cookieEnabled;
 	return this;
 }
@@ -19,3 +30,4 @@ var offline = setInterval(online, 2500);
 function setcookies() {
 	document.cookie="online=" + offline;
 }
+*/
