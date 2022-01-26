@@ -13,14 +13,18 @@ p {
 }
 
 .homescreen_panel {
-	z-index: 10;
+	z-index: 9;
+	position: absolute;
 	display: block;
 	margin: auto;
 	width: 50%;
-	height: 50%;
 	margin-top: 25%;
 	margin-bottom: 25%;
 	border: 6px solid #ffffff;
 }
 
-.in_game_panel {
+.game_objects {
+	z-index: 1;
+	position: absolute;
+	margin: auto;
+}
