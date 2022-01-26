@@ -11,3 +11,16 @@ h6,
 p {
 	color: #fffff;
 }
+
+.homescreen_panel {
+	z-index: 10;
+	display: block;
+	margin: auto;
+	width: 50%;
+	height: 50%;
+	margin-top: 25%;
+	margin-bottom: 25%;
+	border: 6px solid #ffffff;
+}
+
+.in_game_panel {
