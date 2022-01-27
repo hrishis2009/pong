@@ -6,6 +6,28 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="https://shanmuga1980.github.io/pong/style.css">
 		<script>
+			function onLoad() {
+				var cookies = navigator.cookieEnabled;
+				var noCkAltTxt = "Cookies are not enabled for this website. Please enable cookies so you can enjoy a better experience"
+				if (cookies != true) {
+					window.alert(noCkAltTxt);
+				} else {
+					var online = navigator.onLine
+					document.cookie="online=" + online;
+					//continue setting cookies
+				}
+			}
+
+function online() {
+	
+	return this;
+}
+
+var offline = setInterval(online, 2500);
+
+function setcookies() {
+	document.cookie="online=" + offline;
+}
 		</script>
 	</head>
 	<body onload="onLoad()">
