@@ -1,12 +1,4 @@
-function screenHeight () { 
-	let x = window.screen.width;
-	return x;
-}
-
-var screenHeight = screenHeight();
-var homePanelHeight = screenHeight * 0.5;
-
-function onLoad () {
+function onLoad() {
 	var screenHeight = window.screen.height;
 	var homePanelHeight = screenHeight * 0.5;
 	document.getElementById("homescreen_panel").style.height = homePanelHeight;
