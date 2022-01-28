@@ -4,35 +4,40 @@
 		<title>Pong</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://shanmuga1980.github.io/pong/style.css">
-		<script>
-			function onLoad() {
-				var cookies = navigator.cookieEnabled;
-				var noCkAltTxt = "Cookies are not enabled for this website. Please enable cookies so you can enjoy a better experience"
-				if (cookies != true) {
-					window.alert(noCkAltTxt);
-				} else {
-					var online = navigator.onLine
-					document.cookie="online=" + online;
-					//continue setting cookies
-				}
+		<style>
+			body {
+				background-color: #000000;
 			}
-
-function online() {
-	
-	return this;
-}
-
-var offline = setInterval(online, 2500);
-
-function setcookies() {
-	document.cookie="online=" + offline;
-}
-		</script>
+			
+			h1,h2,h3,h4,h5,h6,p {
+				color: #ffffff;
+				font-family: monospace;
+			}
+			
+			.play {
+				border: 3px solid #ffffff;
+				background-color: #000000;
+				bottom: 3vh;
+				float: center;
+			}
+			
+			.homescreen_panel {
+				z-index: 9;
+				position: absolute;
+				margin-left: 25%;
+				margin-right: 25%;
+				margin-top: 25vh;
+				margin-bottom: 25vh;
+				width: 50%;
+				height: 50vh;
+				border: 6px solid #ffffff;
+				background-color: #000000;
+			}
+		</style>
 	</head>
 	<body onload="onLoad()">
 		<div class="homescreen_panel">
-			<button type="button">Press to Play</button>
+			<button id="play" type="button">Press to Play</button>
 		</div>
 		<div class="in_game_panel">
 		</div>
@@ -43,7 +48,7 @@ function setcookies() {
 				</svg>
 			</div>
 		</div>
-		<div class="eam1_movement">
+		<div class="team1_movement">
 			<div class="team1">
 				<svg width="50" height="225">
 					<rect width="50" height="225" style="fill:#ff0000;stroke-width:5;stroke:#000000"/>
@@ -58,4 +63,7 @@ function setcookies() {
 			</div>
 		</div>
 	</body>
+	<script>
+		//write cookies/sessionstorage/localstorage
+	</script>
 </html>
