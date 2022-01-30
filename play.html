@@ -4,6 +4,8 @@
 		<title>Pong</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--Font Awesome 5.15.4 MIT license-->
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 		<style>
 			body {
 				background-color: #000000;
@@ -43,26 +45,42 @@
 				border-radius: 6px;
 				font-family: monospace;
 				font-size: 10vh;
+				transition: 0.3s;
 			}
 			
-			@keyframes playhover {
-				0%{border: 0px;}
-				12.5%{border: 1.5px solid #ffffff;}
-				25%{border: 3px solid #ffffff;}
-				50%{border: 4.5px solid #ffffff;}
-				100%{boder: 6px solid #ffffff;}
+			.home {
+				position: relative;
+				height: 14.5vh;
+				z-index: 9;
+				margin-bottom: 2vh;
+				margin-top: 33.5vh;
+				width: 29%;
+				margin-right: auto;
+				margin-left: auto;
+				font-family: monospace;
+				font-size: 10vh;
+				transition: 0.3s;
+				border: none;
+				border-radius: 6px;
+				background-color: #ffffff;
+				font-size: 10vh;
 			}
 			
-			.play:hover {
-				animation: playhover 1s 1;
+			.play:hover, .home:hover {
+				background-color: #000000;
+				color: #ffffff;
 				border: 6px solid #ffffff;
 			}
 		</style>
 	</head>
 	<body>
 		<div class="homescreen_panel">
-			<button class="play" type="button">Play</button>
+			<button class="play" type="button">
+				<i class="fas fa-play"></i>Play
+			</button>
 			<button class="home" type="button">
+				<i class="fas fa-home"></i>
+			</button>
 		</div>
 		<div class="in_game_panel">
 		</div>
