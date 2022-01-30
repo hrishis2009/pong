@@ -22,7 +22,7 @@
 			}
 			
 			.homescreen_panel {
-				z-index: 9;
+				z-index: 8;
 				position: absolute;
 				margin-left: 25%;
 				margin-right: 25%;
@@ -33,11 +33,38 @@
 				border: 6px solid #ffffff;
 				background-color: #000000;
 			}
+			
+			.play {
+				position: relative;
+				height: 14.5vh;
+				z-index: 9;
+				margin-bottom: 2vh;
+				margin-top: 33.5ch;
+				width: 10%;
+				margin-right: 20%;
+				margin-left: 20%;
+				border: solid #ffffff;
+				background-color: #00ff00;
+				color: #000000;
+
+			}
+			
+			@keyframes playhover {
+				0%{border: 0px;}
+				12.5%{border: 0.75px solid #ffffff;}
+				25%{border: 1.5px solid #ffffff;}
+				50%{border: 2.25px solid #ffffff;}
+				100%{boder: 3px solid #ffffff;}
+			}
+			
+			.play:hover {
+				animation: playhover 1s 1;
+			}
 		</style>
 	</head>
-	<body onload="onLoad()">
+	<body>
 		<div class="homescreen_panel">
-			<button id="play" type="button">Press to Play</button>
+			<button id="play" type="button" on>Press to Play</button>
 		</div>
 		<div class="in_game_panel">
 		</div>
