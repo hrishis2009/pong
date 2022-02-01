@@ -70,15 +70,16 @@
 				background-color: #000000;
 				color: #ffffff;
 				border: 6px solid #ffffff;
-			}
+			} 
+			
 		</style>
 	</head>
 	<body>
 		<div class="homescreen_panel">
-			<button class="play" type="button" onclick="play()">
+			<button class="play btnclickanm" type="button" onclick="btnclickanm(); play();">
 				<i class="fas fa-play"></i>Play
 			</button>
-			<button class="home" type="button" onclick="home()">
+			<button class="home btnclickanm" type="button" onclick="btnclickanm(); home();">
 				<i class="fas fa-home"></i>
 			</button>
 		</div>
@@ -107,6 +108,9 @@
 		</div>
 	</body>
 	<script>
+		function btnclickanm() {
+			document.getElementsByClassName("btnclickanm").style.border = "0px solid #ffffff"
+		}
 		//write cookies/sessionstorage/localstorage
 	</script>
 </html>
