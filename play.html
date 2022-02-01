@@ -111,16 +111,18 @@
 		function btnclickanm(ado) {
 			ado.style.backgroundColor = "background-color: #000000";
 			ado.style.color = "#000000";
+			ado.style.borderColor = "#ffffff"
+			ado,style.borderStyle = "solid"
 			let bba = null;
 			clearInterval(bba);
 			bba = setInterval(incbdr, 5);
-			let bdr = 0;
+			let bdrwd = 0;
 			function incbdr() {
-				if (ado.style.border === "6px solid #ffffff") {
+				if (ado.style.borderWidth >== "6px") {
 					clearInterval(bba);
 				} else {
 					bdr++;
-					ado.style.border = bdr+"px solid #ffffff";
+					ado.style.borderWidth = bdrwd+"px";
 				}
 			}
 		}
