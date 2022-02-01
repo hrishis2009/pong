@@ -76,10 +76,10 @@
 	</head>
 	<body>
 		<div class="homescreen_panel">
-			<button class="play btnclickanm" type="button" onclick="btnclickanm(); play();">
+			<button class="play bca" type="button" onclick="btnclickanm(this); play();">
 				<i class="fas fa-play"></i>Play
 			</button>
-			<button class="home btnclickanm" type="button" onclick="btnclickanm(); home();">
+			<button class="home bca" type="button" onclick="btnclickanm(this); home();">
 				<i class="fas fa-home"></i>
 			</button>
 		</div>
@@ -108,8 +108,21 @@
 		</div>
 	</body>
 	<script>
-		function btnclickanm() {
-			document.getElementsByClassName("btnclickanm").style.border = "0px solid #ffffff"
+		function btnclickanm(ado) {
+			ado.style.backgroundColor = "background-color: #000000";
+			ado.style.color = "#000000";
+			let bba = null;
+			clearInterval(bba);
+			bba = setInterval(incbdr, 5);
+			let bdr = 0;
+			function incbdr() {
+				if (ado.style.border === "6px solid #ffffff") {
+					clearInterval(bba);
+				} else {
+					bdr++;
+					ado.style.border = bdr+"px solid #ffffff";
+				}
+			}
 		}
 		//write cookies/sessionstorage/localstorage
 	</script>
