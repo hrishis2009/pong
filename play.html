@@ -108,11 +108,16 @@
 		</div>
 	</body>
 	<script>
+		function home() {
+			location.replace("https://shanmuga1980.github.io/abunchofrandomstuff/");
+		}
+		
 		function btnclickanm(ado) {
-			ado.style.backgroundColor = "background-color: #000000";
+			ado.style.backgroundColor = "#000000";
 			ado.style.color = "#000000";
 			ado.style.borderColor = "#ffffff"
-			ado,style.borderStyle = "solid"
+			ado.style.borderStyle = "solid"
+			ado.style.borderWidth = "0px"
 			let bba = null;
 			clearInterval(bba);
 			bba = setInterval(incbdr, 5);
