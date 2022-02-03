@@ -16,7 +16,7 @@
 				font-family: monospace;
 			}
 			
-			.homescreen_panel {
+			/*.homescreen_panel {
 				z-index: 8;
 				position: absolute;
 				margin-left: 25%;
@@ -28,7 +28,7 @@
 				border: 10px solid #ffffff;
 				background-color: #000000;
 				border-radius: 10px;
-			}
+			}*/
 			
 			.play {
 				position: absolute;
@@ -71,18 +71,46 @@
 				color: #ffffff;
 				border: 6px solid #ffffff;
 			} 
-			
 		</style>
 	</head>
 	<body>
+		<script type="text/javascript">
+			window.onload = function() {
+				const body = document.getElementsByTagName("body");
+				const bodyStyle = {backgroundColor: '#000000'};
+				body.style = bodyStyle;
+				/*body.style = `
+					background-color: #000000;
+				`;
+				*/
+				const homescreenPanel = document.createElement("div");
+				homescreenPanel.id = "homescreen_panel";
+				homescreenPanel.style = `
+					z-index: 8;
+					position: absolute;
+					margin-left: 25%;
+					margin-right: 25%;
+					margin-top: 25vh;
+					margin-bottom: 25vh;
+					width: 50%;
+					height: 50vh;
+					border: 10px solid #ffffff;
+					background-color: #000000;
+					border-radius: 10px;
+					body.appendChild(homescreenPanel);
+				`;
+			}
+		</script>
+		<!--
 		<div class="homescreen_panel">
-			<button class="play bca" type="button" onclick="btnclickanm(this); play();">
+			<button class="play" type="button" onclick="btnclickanm(this); play();">
 				<i class="fas fa-play"></i>Play
 			</button>
-			<button class="home bca" type="button" onclick="btnclickanm(this); home();">
+			<button class="home" type="button" onclick="btnclickanm(this); home();">
 				<i class="fas fa-home"></i>
 			</button>
 		</div>
+		-->
 		<div class="in_game_panel">
 		</div>
 		<div class="ball_movement">
@@ -109,7 +137,7 @@
 	</body>
 	<script>
 		function home() {
-			location.replace("https://shanmuga1980.github.io/abunchofrandomstuff/");
+			location.replace("https://shanmuga1980.github.io/abunchofrandomstuff/")
 		}
 		
 		function btnclickanm(ado) {
