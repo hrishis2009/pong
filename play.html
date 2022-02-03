@@ -3,6 +3,50 @@
 	<head>
 		<title>Pong</title>
 		<meta charset="UTF-8">
+		<script type="text/javascript">
+			const bodya = document.getElementsByTagName("body");
+			const body = bodya[0];
+			body.style = `
+			background-color: #000000;
+			`;
+			
+			const homescreenPanel = document.createElement("div");
+			homescreenPanel.id = "homescreen_panel";
+			homescreenPanel.style = `
+			z-index: 8;
+			position: absolute;
+			margin-left: 25%;
+			margin-right: 25%;
+			margin-top: 25vh;
+			margin-bottom: 25vh;
+			width: 50%;
+			height: 50vh;
+			border: 10px solid #ffffff;
+			background-color: #000000;
+			border-radius: 10px;
+				`;
+			body.appendChild(homescreenPanel);
+		</script>
+		<script>
+			if (typeof(Worker) !== "undefined") {
+				const webWorkerSupp = "yes"
+			} else {
+				const webWorkerSupp = "no";
+			}
+			const screenwidth = window.screen.availWidth;
+			const screenheigt = window.screen.availHeight;
+			const colordepth = window.screen.colorDepth;
+			const protocol = window.location.protocol;
+			const lang = navigator.language;
+			const online = navigator.onLine;
+			localStorage.setItem("lang", lang);
+			localStorage.setItem("online", online);
+			localStorage.setItem("width", screenwidth);
+			localStorage.setItem("height", screenheight);
+			localStorage.setItem("colorDepth", colordepth);
+			sessionStorage.setItem("protocol", protocol);
+			localStorage.setItem("web_worker_support", webWorkerSupp);
+		</script>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!--Font Awesome 5.15.4 MIT license-->
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -74,33 +118,7 @@
 		</style>
 	</head>
 	<body>
-		<script type="text/javascript">
-			window.onload = function() {
-				const body = document.getElementsByTagName("body");
-				const bodyStyle = {backgroundColor: '#000000'};
-				body.style = bodyStyle;
-				/*body.style = `
-					background-color: #000000;
-				`;
-				*/
-				const homescreenPanel = document.createElement("div");
-				homescreenPanel.id = "homescreen_panel";
-				homescreenPanel.style = `
-					z-index: 8;
-					position: absolute;
-					margin-left: 25%;
-					margin-right: 25%;
-					margin-top: 25vh;
-					margin-bottom: 25vh;
-					width: 50%;
-					height: 50vh;
-					border: 10px solid #ffffff;
-					background-color: #000000;
-					border-radius: 10px;
-					body.appendChild(homescreenPanel);
-				`;
-			}
-		</script>
+
 		<!--
 		<div class="homescreen_panel">
 			<button class="play" type="button" onclick="btnclickanm(this); play();">
