@@ -4,14 +4,14 @@
 		<title>Pong</title>
 		<meta charset="UTF-8">
 		<script type="text/javascript">
-			const bodya = document.getElementsByTagName("body");
-			const body = bodya[0];
+			const bodyarr = document.getElementsByTagName("body");
+			const body = bodyarr[0];
 			body.style = `
 			background-color: #000000;
 			`;
 			
 			const homescreenPanel = document.createElement("div");
-			homescreenPanel.id = "homescreen_panel";
+			homescreenPanel.setAttribute("id", "homescreen_panel");
 			homescreenPanel.style = `
 			z-index: 8;
 			position: absolute;
