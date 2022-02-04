@@ -4,14 +4,9 @@
 		<title>Pong</title>
 		<meta charset="UTF-8">
 		<script type="text/javascript">
-			const bodyarr = document.getElementsByTagName("body");
-			const body = bodyarr[0];
-			body.style = `
-			background-color: #000000;
-			`;
-			
+			document.querySelector("body").style.backgroundColor = "#000000";
 			const homescreenPanel = document.createElement("div");
-			homescreenPanel.setAttribute("id", "homescreen_panel");
+			homescreenPanel.classList.add("homescreen_panel");
 			homescreenPanel.style = `
 			z-index: 8;
 			position: absolute;
@@ -25,7 +20,7 @@
 			background-color: #000000;
 			border-radius: 10px;
 				`;
-			body.appendChild(homescreenPanel);
+			document.querySelector("body").appendChild(homescreenPanel);
 		</script>
 		<script>
 			if (typeof(Worker) !== "undefined") {
