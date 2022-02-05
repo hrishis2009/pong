@@ -5,17 +5,29 @@
 		<meta charset="UTF-8">
 		<script type="text/javascript">
 			class Create {
+				static backdrop () {
+					const backdrop = document.createElement("div");
+					backdrop.id("backdrop");
+					backdrop.style = `
+					position: absolute;
+					z-index: -1;
+					height: 100vh;
+					width: 100vw;
+					background-color: #000000;
+					`;
+				}
+				
 				static homePanel () {
 					const homescreenPanel = document.createElement("div");
 					homescreenPanel.id("homescreen_panel");
 					homescreenPanel.style = `
 					z-index: 8;
 					position: absolute;
-					margin-left: 25%;
-					margin-right: 25%;
+					margin-left: 25vw;
+					margin-right: 25vw;
 					margin-top: 25vh;
 					margin-bottom: 25vh;
-					width: 50%;
+					width: 50vw;
 					height: 50vh;
 					border: 10px solid #ffffff;
 					background-color: #000000;
@@ -23,7 +35,7 @@
 					`;
 				}
 				
-				homePanelBtn (id, txt) {
+				static homePanelBtn (id, txt) {
 					const button = document.createElement("button");
 					button.id(id);
 					button.style = `
@@ -42,6 +54,31 @@
 					button.appendChild(txt);
 					document.getElementById("homescreen_panel").appendChild(button);
 					// margin-bottom: 1.625vh; for lower row
+					// margin-bottom: 15.75 vh for middle row
+					// margin-top: 1.625vh for top row
+				}
+				
+				static playfields() {
+					const playfieldLeft = document.creatElement("div");
+					playfieldLeft.id("playfield_left");
+					const playfieldRight = document.createElement("div");
+					playfieldRight.id("playfield_right");
+					playfieldLeft.style = `
+					position: absolute;
+					background-color: #000000;
+					margin-right: 50%;
+					width: 50%;
+					border-style: none dashed none none;
+					border-color: #ffffff;
+					`;
+					playfieldRight.style = `
+					position: absolute;
+					background-color: #000000;
+					margin-left: 50%;
+					width: 50%;
+					border-style: none none none dashed;
+					border-color: #ffffff;
+					`;
 				}
 				
 				static ball () {
@@ -49,9 +86,10 @@
 					ballMovement.id("ball_movement");
 					const ballContainer = document.createElement("div");
 					ballContainer.id("ball")
-					const svgns = "http://www.w3.org/2000/svg";
-					const svgDocument = evt.target.ownerDocument;
-					const shape = svgDocument.createElementNS(svgns, "circle");
+					var svgns = "http://www.w3.org/2000/svg";
+					var svgDocument = evt.target.ownerDocument;
+					var shape = svgDocument.createElementNS(svgns, "circle");
+					// <circle cx="50" cy="50" r="40" stroke="#000000" stroke-width="4" fill="#00ff00" />
 					shape.setAttributeNS(null, "cx", 50);
 					shape.setAttributeNS(null, "cy", 50);
 					shape.setAttributeNS(null, "r",  40);
@@ -60,25 +98,29 @@
 					shape.setAttributesNS(null, "fill", "#ffffff");
 					ballContainer.appendChild(shape);
 					ballMovement.appendChild(ballContainer);
-					/*
-					 *<div class="ball_movement">
-					 *	<div class="ball">
-					 *		<svg width="100" height="100">
-					 *			<circle cx="50" cy="50" r="40" stroke="#000000" stroke-width="4" fill="#00ff00" />
-					 *		</svg>
-					 *	</div>
-					 *</div>
-					 */
 				}
 				
-				paddle (id) {
+				static paddle (loc) {
 					const paddleMovement = document.createElement("div");
-					paddleMovement.id("paddle_movement_" + id);
-					//continue
+					paddleMovement.id("paddle_movement_" + loc);
+					const paddleContainer = document.createElement("div");
+					paddleContainer.id("paddle_" + loc);
+					var svgns = "http://www.w3.org/2000/svg";
+					var svgDocument = evt.target.ownerDocument;
+					var shape = svgDocument.createElementNS(svgns, "rect");
+					// <rect width="50" height="225" style="fill:#ff0000;stroke-width:5;stroke:#000000"/>
+					shape.setAttributeNS(null, "width", 50);
+					shape.setAttributeNS(null, "height", 225);
+					shape.setAttributeNS(null, "stroke",  "#000000");
+					shape.setAttributeNS(null, "stroke-width", 4); 
+					shape.setAttributesNS(null, "fill", "#ffffff");
+					paddleContainer.appendChild(shape);
+					paddleMovement.appendChild(paddleContainer);
 				}
 			}
+			
 			class Append {
-				child(obj, prt) {
+				static child(obj, prt) {
 					prt.appendChild(obj);
 				}
 			}
@@ -122,8 +164,8 @@
 				margin-left: 25%;
 				margin-right: 25%;
 				margin-top: 25vh;
-				margin-bottom: 25vh;
-				width: 50%;
+				margin-bottom: 2vh;
+				width: 50vw;
 				height: 50vh;
 				border: 10px solid #ffffff;
 				background-color: #000000;
@@ -172,7 +214,7 @@
 				</svg>
 			</div>
 		</div>
-		-->
+		
 		<div class="team1_movement">
 			<div class="team1">
 				<svg width="50" height="225">
@@ -187,6 +229,7 @@
 				</svg>
 			</div>
 		</div>
+	-->
 	</body>
 	<script>
 		function home() {
