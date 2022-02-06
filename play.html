@@ -129,6 +129,7 @@
 			}
 			
 			window.addEventListener("load", function startup() {
+				window.alert("window onload eventlistener has fired!");
 				const backdrop = create.backdrop();
 				const homePanel = create.homePanel();
 				const playBtn = create.homePanelBtn(play, "Play");
