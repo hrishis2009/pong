@@ -4,7 +4,7 @@
 		<title>Pong</title>
 		<meta charset="UTF-8">
 		<script type="text/javascript">
-			class Create {
+			class create {
 				static backdrop () {
 					const backdrop = document.createElement("div");
 					backdrop.id("backdrop");
@@ -58,7 +58,7 @@
 					// margin-top: 1.625vh for top row
 				}
 				
-				static playfields() {
+				static playfields () {
 					const playfieldLeft = document.creatElement("div");
 					playfieldLeft.id("playfield_left");
 					const playfieldRight = document.createElement("div");
@@ -79,6 +79,9 @@
 					border-style: none none none dashed;
 					border-color: #ffffff;
 					`;
+				}
+				
+				static ingamenav () {
 				}
 				
 				static ball () {
@@ -119,13 +122,23 @@
 				}
 			}
 			
-			class Append {
+			class append {
 				static child(obj, prt) {
 					prt.appendChild(obj);
 				}
 			}
-		</script>
-		<script>
+			
+			window.addEventListener("load", function startup() {
+				const backdrop = create.backdrop();
+				const homePanel = create.homePanel();
+				const playBtn = create.homePanelBtn(play, "Play");
+				const homeBtn = create.homePanelBtn(home, "/f015");
+				append.child(homePanel, backdrop);
+				append.child(playBtn, homePanel);
+				append.child(homeBtn, homePanel);
+			});
+			
+			
 			if (typeof(Worker) !== "undefined") {
 				const webWorkerSupp = "yes"
 			} else {
@@ -194,7 +207,6 @@
 		</style>
 	</head>
 	<body>
-
 		<!--
 		<div class="homescreen_panel">
 			<button class="play" type="button" onclick="btnclickanm(this); play();">
