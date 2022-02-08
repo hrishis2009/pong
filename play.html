@@ -128,8 +128,8 @@
 				}
 			}
 			
-			window.addEventListener("load", function startup() {
-				window.alert("window onload eventlistener has fired!");
+			function startup() {
+				alert("window onload eventlistener has fired!");
 				const backdrop = create.backdrop();
 				const homePanel = create.homePanel();
 				const playBtn = create.homePanelBtn(play, "Play");
@@ -137,8 +137,7 @@
 				append.child(homePanel, backdrop);
 				append.child(playBtn, homePanel);
 				append.child(homeBtn, homePanel);
-			});
-			
+			}
 			
 			if (typeof(Worker) !== "undefined") {
 				const webWorkerSupp = "yes"
@@ -207,7 +206,7 @@
 			} 
 		</style>
 	</head>
-	<body>
+	<body onload="startup()">
 		<!--
 		<div class="homescreen_panel">
 			<button class="play" type="button" onclick="btnclickanm(this); play();">
