@@ -151,3 +151,4 @@ class create {
 			localStorage.setItem("colorDepth", colordepth);
 			sessionStorage.setItem("protocol", protocol);
 			localStorage.setItem("web_worker_support", webWorkerSupp);
+}
