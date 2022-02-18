@@ -5,13 +5,16 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<script src="https://shanmuga1980.github.io/pong/pong/main.js"></script>
-		<!--Font Awesome 5.15.4 MIT license-->
+		<!-- Font Awesome 5.15.4 MIT license -->
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+		<!-- normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css 
+		<link href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" rel="stylesheet">
+-->
 		<style>
 			body {
 				background-color: #000000;
 			}
-			/*
+			
 			h1,h2,h3,h4,h5,h6,p {
 				color: #ffffff;
 				font-family: monospace;
@@ -29,7 +32,7 @@
 				border: 10px solid #ffffff;
 				background-color: #000000;
 				border-radius: 10px;
-			}*/
+			}
 			
 			#play {
 				width: 50%;
@@ -52,8 +55,7 @@
 			} 
 		</style>
 	</head>
-	<body onload="create.startup()">
-		<!--
+	<body>
 		<div class="homescreen_panel">
 			<button class="play" type="button" onclick="btnclickanm(this); play();">
 				<i class="fas fa-play"></i>Play
@@ -62,7 +64,6 @@
 				<i class="fas fa-home"></i>
 			</button>
 		</div>
-		
 		<div class="in_game_panel">
 		</div>
 		<div class="ball_movement">
@@ -87,7 +88,6 @@
 				</svg>
 			</div>
 		</div>
-	-->
 	</body>
 	<script>
 		function home() {
