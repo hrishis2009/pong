@@ -74,8 +74,7 @@
 			  paddleContainer.appendChild(shape);
 			  paddleMovement.appendChild(paddleContainer);
 			}
-      </script>
-      <script>
+	    
 			if (typeof(Worker) !== "undefined") {
 			  var webWorkerSupp = "yes"
 			} else {
@@ -97,8 +96,8 @@
 			function load() {
 			  backdrop();
 			  homePanel();
-              homePanelBtn(home, '<i class="fas fa-home"></i>');
-              homePanelBtn(play, '<i class="fas fa-play"></i>Play');
+              homePanelBtn('home', 'Home');
+              homePanelBtn('play', 'Play');
 			}
     </script>
     <title>Pong</title>
