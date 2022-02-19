@@ -79,9 +79,6 @@
 					paddleMovement.appendChild(paddleContainer);
 				}
 			
-			backdrop();
-			homePanel();
-			
 			if (typeof(Worker) !== "undefined") {
 				const webWorkerSupp = "yes"
 			} else {
@@ -100,6 +97,11 @@
 			localStorage.setItem("colorDepth", colordepth);
 			sessionStorage.setItem("protocol", protocol);
 			localStorage.setItem("web_worker_support", webWorkerSupp);
+			
+			function load() {
+				backdrop();
+				homePanel();
+			}
 		</script>
 		<title>Pong</title>
 		<meta charset="UTF-8">
@@ -152,7 +154,7 @@
 			} 
 		</style>
 	</head>
-	<body>
+	<body onload="load()">
 		<!--
 		<div class="homescreen_panel">
 			<button class="play" type="button" onclick="btnclickanm(this); play();">
