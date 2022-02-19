@@ -8,38 +8,35 @@
 
 			function homePanel() {
 			  let homescreenPanel = document.createElement("div");
-			  homescreenPanel.id = "homescreen_panel";
-			  homescreenPanel.style = "z-index: 8;position: absolute;margin-left: 25vw;margin-right: 25vw;margin-top: 25vh;margin-bottom: 25vh;width: 50vw;height: 50vh;border: 10px solid #ffffff;background-color: #000000;border-radius: 10px;";
+			  homescreenPanel.setAttribute("id", "homescreen_panel");
 			  document.body.appendChild(homescreenPanel);
 			}
 
-			function homePanelBtn(pos, txt) {
+			function homePanelBtn(id) {
 			  let button = document.createElement("button");
-				if (pos == 'll') {
-					button.style ="width: 20%; margin-bottom: 1.625vh; margin-right: auto; margin-left: 2.5%; margin-top: 33.875vh;position: absolute;height: 14.5vh;z-index: 9;border: none;background-color: #ffffff;color: #000000;border-radius: 6px;font-family: monospace;font-size: 10vh;transition: 0.3s;"
-				} else if (pos == 'lc') {
-					button.style = "width: 50%;margin-bottom: 1.625vh;margin-right: 25%;margin-left: 25%;margin-top: 33.875vh;position: absolute;height: 14.5vh;z-index: 9;border: none;background-color: #ffffff;color: #000000;border-radius: 6px;font-family: monospace;font-size: 10vh;transition: 0.3s;"
-				} else {
-					document.alert('an error has occured. Please come back later while we fix this glitch');
-				}
-			  txt = document.createTextNode(txt);
-			  button.appendChild(txt);
+        button.setAttribute("id", id);
+        if (id == "home") {
+          button.innerHTML = '<i class="fas fa-home"></i>';
+          button.setAttribute("onclick", "home();");
+        } else if (id == "play") {
+          button.innerHTML = '<i class="fas fa-play"></i>Play';
+        }
 			  document.getElementById("homescreen_panel").appendChild(button);
 			  // margin-bottom: 1.625vh; for lower row
 			  // margin-bottom: 15.75 vh for middle row
-			  // margin-top: 1.625vh for top row
 			}
 
 			function playfields() {
 			  let playfieldLeft = document.creatElement("div");
-			  playfieldLeft.id("playfield_left");
+			  playfieldLeft.setAttribute("id", "playfield_left");
 			  let playfieldRight = document.createElement("div");
-			  playfieldRight.id("playfield_right");
+			  playfieldRight.setAttribute("id", "playfield_right");
 			  playfieldLeft.style = "position: absolute;background-color: #000000;margin-right: 50%;width: 50%;border-style: none dashed none none;border-color: #ffffff;";
 			  playfieldRight.style = "position: absolute;background-color: #000000;margin-left: 50%;width: 50%;border-style: none none none dashed;border-color: #ffffff;";
 			}
 
-			function ingamenav() {}
+			function ingamenav() {
+      }
 
 			function ball() {
 			  let ballMovement = document.createElement("div");
@@ -95,11 +92,11 @@
 			localStorage.setItem("colorDepth", colordepth);
 			sessionStorage.setItem("protocol", protocol);
       
-			function load() {
+			function prepareBaseScene() {
 			  backdrop();
 			  homePanel();
-				homePanelBtn('ll', 'Home');
-				homePanelBtn('lc', 'Play');
+				homePanelBtn("home");
+				homePanelBtn("play");
 			}
     </script>
     <title>Pong</title>
@@ -113,17 +110,7 @@
 		<!--normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css-->
 		<link href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" rel="stylesheet">
     <style>
-      /*
-			body {
-				background-color: #000000;
-			}
-			
-			h1,h2,h3,h4,h5,h6,p {
-				color: #ffffff;
-				font-family: monospace;
-			}
-			
-			.homescreen_panel {
+			#homescreen_panel {
 				z-index: 8;
 				position: absolute;
 				margin-left: 25%;
@@ -142,60 +129,80 @@
         margin-bottom: 1.625vh;
         margin-right: 25%;
         margin-left: 25%;
+        margin-top: 33.875vh;
+        position: absolute;
+        height: 14.5vh;
+        z-index: 9;
+        border: none;
+        background-color: #ffffff;
+        color: #000000;
+        border-radius: 6px;
+        font-family: monospace;
+        font-size: 10vh;
+        transition: 0.3s;
+
       }
 
       #home {
-        width: 20%;
-        margin-bottom: 1.625vh;
-        margin-right: auto;
-        margin-left: 2.5%;
-      }*/
-			/* turn all the below css into a js onmouseover and onmouseout eventlisterner functions,
+       width: 20%; 
+       margin-bottom: 1.625vh;
+			 margin-right: auto;
+			 margin-left: 2.5%;
+			 margin-top: 33.875vh;
+       position: absolute;
+       height: 14.5vh;
+       z-index: 9;
+       border: none;
+       background-color: #ffffff;
+       color: #000000;
+       border-radius: 6px;
+       font-family: monospace;
+       font-size: 10vh;
+       transition: 0.3s;
+      }
+			
       #play:hover,
       #home:hover {
         background-color: #000000;
         color: #ffffff;
         border: 6px solid #ffffff;
-      }*/
-
+      }
+      
+      #gameSpaceLeft {
+        z-index: -1;
+        border-right: dashed #000000;
+        width: 50%;
+        float: left;
+        background-color: #000000;
+      }
+      #gameSpaceRight {
+        z-index: -1;
+        border-left: dashed #000000;
+        width: 50%;
+        float: right;
+        background-color: #000000;
+      }
+      #ball_movement {
+        width: auto;
+        margin: auto;
+      }
+      #team1_movement {
+        width: auto;
+        margin: auto;
+        margin-left: 5%;
+        margin-top: 50%;
+        margin-bottom: 50%;
+      }
+      #team2_movement {
+        width: auto;
+        margin: auto;
+        margin-left: 45%;
+        margin-top: 50%;
+        margin-bottom: 50%;
+      }
     </style>
   </head>
-  <body onload="load()">
-    <!--
-		<div class="homescreen_panel">
-			<button class="play" type="button" onclick="btnclickanm(this); play();">
-				<i class="fas fa-play"></i>Play
-			</button>
-			<button class="home" type="button" onclick="btnclickanm(this); home();">
-				<i class="fas fa-home"></i>
-			</button>
-		</div>
-		
-		<div class="in_game_panel">
-		</div>
-		<div class="ball_movement">
-			<div class="ball">
-				<svg width="100" height="100">
-					<circle cx="50" cy="50" r="40" stroke="#000000" stroke-width="4" fill="#00ff00" />
-				</svg>
-			</div>
-		</div>
-		
-		<div class="team1_movement">
-			<div class="team1">
-				<svg width="50" height="225">
-					<rect width="50" height="225" style="fill:#ff0000;stroke-width:5;stroke:#000000"/>
-				</svg>
-			</div>
-		</div>
-		<div class="team2_movement">
-			<div class="team2">
-				<svg width="50" height="225">
-					<rect width="50" height="225" style="fill:#0000ff;stroke-width:5;stroke:#000000" />
-				</svg>
-			</div>
-		</div>
-	-->
+  <body onload="prepareBaseScene()">
   </body>
   <script>
     function home() {
