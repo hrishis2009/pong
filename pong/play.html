@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
   <head>
     <script>
       function backdrop() {
@@ -21,7 +22,7 @@
         } else if (id == "play") {
           button.innerHTML = '<i class="fas fa-play"></i>Play';
         } else if (id = "info") {
-          button.innerHTML = '<i class="fa-solid fa-question"></i>';
+          button.innerHTML = '<i class="fas fa-question"></i>';
           button.setAttribute("onclick", "info();");
         }
         document.getElementById("homescreen_panel").appendChild(button);
@@ -176,7 +177,6 @@
       #info {
         width: 20%;
         margin-bottom: 1.625vh;
-        margin-left: 27.5%;
         margin-right: 2.5%;
         margin-top: 33.875vh;
         position: absolute;
@@ -230,14 +230,18 @@
 
     </style>
   </head>
+
   <body onload="prepareBaseScene()">
   </body>
   <script>
     function home() {
       location.replace("https://shanmuga1980.github.io/abunchofrandomstuff/")
     }
-		function info() {
-			alert("this button is still in alpha!");
-		}
+
+    function info() {
+      alert("this button is still in alpha!");
+    }
+
   </script>
+
 </html>
