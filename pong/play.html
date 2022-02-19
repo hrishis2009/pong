@@ -4,7 +4,7 @@
 		<title>Pong</title>
 		<meta charset="UTF-8">
 		<script type="text/javascript">
-			class create {
+			class Create {
 				static backdrop () {
 					const backdrop = document.createElement("div");
 					backdrop.id("backdrop");
@@ -122,11 +122,11 @@
 				}
 			}
 			
-			class append {
-				static child(obj, prt) {
-					prt.appendChild(obj);
-				}
-			}
+			Create.backdrop()
+			
+			window.addEventListener("load", Create.homePanel);
+			window.addEventListener("load", function() {Create.homePanelBtn("home",'<i class="fas fa-home"></i>')});
+			
 			
 			function startup() {
 				alert("window onload eventlistener has fired!");
@@ -206,7 +206,7 @@
 			} 
 		</style>
 	</head>
-	<body onload="startup()">
+	<body>
 		<!--
 		<div class="homescreen_panel">
 			<button class="play" type="button" onclick="btnclickanm(this); play();">
