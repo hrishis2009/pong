@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
-
   <head>
     <script>
       function backdrop() {
@@ -21,6 +20,7 @@
           button.setAttribute("onclick", "home();");
         } else if (id == "play") {
           button.innerHTML = '<i class="fas fa-play"></i>Play';
+					button.setAttribute("onclick", "play;");
         } else if (id = "info") {
           button.innerHTML = '<i class="fas fa-question"></i>';
           button.setAttribute("onclick", "info();");
@@ -102,7 +102,6 @@
         homePanelBtn("play");
         homePanelBtn("info");
       }
-
     </script>
     <title>Pong</title>
     <meta charset="UTF-8">
@@ -145,7 +144,7 @@
         font-family: monospace;
         font-size: 10vh;
         transition: 0.3s;
-
+        z-index: 1999;
       }
 
       #home {
@@ -164,6 +163,7 @@
         font-family: monospace;
         font-size: 10vh;
         transition: 0.3s;
+        z-index: 1999;
       }
 
       #play:hover,
@@ -176,8 +176,8 @@
 
       #info {
         width: 20%;
+        margin-left: 77.5%;
         margin-bottom: 1.625vh;
-        margin-right: 2.5%;
         margin-top: 33.875vh;
         position: absolute;
         height: 14.5vh;
@@ -189,6 +189,7 @@
         font-family: monospace;
         font-size: 10vh;
         transition: 0.3s;
+        z-index: 1999;
       }
 
       #gameSpaceLeft {
@@ -227,10 +228,8 @@
         margin-top: 50%;
         margin-bottom: 50%;
       }
-
     </style>
   </head>
-
   <body onload="prepareBaseScene()">
   </body>
   <script>
@@ -241,7 +240,9 @@
     function info() {
       alert("this button is still in alpha!");
     }
-
+		
+		function play() {
+			alert("play function has called!");
+		}
   </script>
-
 </html>
