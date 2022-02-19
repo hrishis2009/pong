@@ -5,7 +5,7 @@
 			function backdrop() {
 			  let backdrop = document.createElement("div");
 			  backdrop.id = "backdrop";
-			  backdrop.style = "position: absolute;z-index: -1;height: 100vh;width: 100vw;background-color: #000000; margin:none; border:none;";
+			  backdrop.style = "z-index: -1;height: 100vh;width: 100vw;background-color: #000000; margin:none; border:none;";
 			  document.body.appendChild(backdrop);
 			}
 
@@ -16,10 +16,16 @@
 			  document.getElementById("backdrop").appendChild(homescreenPanel);
 			}
 
-			function homePanelBtn(id, txt) {
+			function homePanelBtn(pos, txt) {
 			  let button = document.createElement("button");
-			  button.id = id;
 			  button.style = "position: absolute;height: 14.5vh;z-index: 9;border: none;background-color: #ffffff;color: #000000;border-radius: 6px;font-family: monospace;font-size: 10vh;transition: 0.3s;";
+				if (pos == 'll') {
+					button.style += "width: 20%; margin-bottom: 1.625vh; margin-right: auto; margin-left: 2.5%; margin-top: 33.875vh;"
+				} else if (pos == 'lc') {
+					button.style += "width: 50%;margin-bottom: 1.625vh;margin-right: 25%;margin-left: 25%;margin-top: 33.875vh;"
+				} else {
+					document.alert('an error has occured. Please come back later while we fix this glitch');
+				}
 			  txt = document.createTextNode(txt);
 			  button.appendChild(txt);
 			  document.getElementById("homescreen_panel").appendChild(button);
@@ -96,8 +102,8 @@
 			function load() {
 			  backdrop();
 			  homePanel();
-              homePanelBtn('home', 'Home');
-              homePanelBtn('play', 'Play');
+				homePanelBtn('ll', 'Home');
+				homePanelBtn('lc', 'Play');
 			}
     </script>
     <title>Pong</title>
@@ -128,7 +134,7 @@
 				border: 10px solid #ffffff;
 				background-color: #000000;
 				border-radius: 10px;
-			}*/
+			}
 
       #play {
         width: 50%;
@@ -142,14 +148,14 @@
         margin-bottom: 1.625vh;
         margin-right: auto;
         margin-left: 2.5%;
-      }
-
+      }*/
+			/* turn all the below css into a js onmouseover and onmouseout eventlisterner functions,
       #play:hover,
       #home:hover {
         background-color: #000000;
         color: #ffffff;
         border: 6px solid #ffffff;
-      }
+      }*/
 
     </style>
   </head>
@@ -194,6 +200,5 @@
     function home() {
       location.replace("https://shanmuga1980.github.io/abunchofrandomstuff/")
     }
-
   </script>
 </html>
