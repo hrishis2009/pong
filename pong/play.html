@@ -1,97 +1,201 @@
 <!DOCTYPE html>
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>Play Pong!</title>
+    <script>
+			function backdrop() {
+			  let backdrop = document.createElement("div");
+			  backdrop.id = "backdrop";
+			  backdrop.style = "position: absolute;z-index: -1;height: 100vh;width: 100vw;background-color: #000000;";
+			  document.body.appendChild(backdrop);
+			  alert("backdrop has been made");
+			}
+
+			function homePanel () {
+			  let homescreenPanel = document.createElement("div");
+			  homescreenPanel.id = "homescreen_panel";
+			  homescreenPanel.style = "z-index: 8;position: absolute;margin-left: 25vw;margin-right: 25vw;margin-top: 25vh;margin-bottom: 25vh;width: 50vw;height: 50vh;border: 10px solid #ffffff;background-color: #000000;border-radius: 10px;";
+			  document.getElementById("backdrop").appendChild(homescreenPanel);
+			  alert("homescreen panel has been made");
+			}
+
+			function homePanelBtn(id, txt) {
+			  let button = document.createElement("button");
+			  button.id = id;
+			  button.style = "position: absolute;height: 14.5vh;z-index: 9;border: none;background-color: #ffffff;color: #000000;border-radius: 6px;font-family: monospace;font-size: 10vh;transition: 0.3s;";
+			  txt = document.createTextNode(txt);
+			  button.appendChild(txt);
+			  document.getElementById("homescreen_panel").appendChild(button);
+			  // margin-bottom: 1.625vh; for lower row
+			  // margin-bottom: 15.75 vh for middle row
+			  // margin-top: 1.625vh for top row
+			}
+
+			function playfields() {
+			  let playfieldLeft = document.creatElement("div");
+			  playfieldLeft.id("playfield_left");
+			  let playfieldRight = document.createElement("div");
+			  playfieldRight.id("playfield_right");
+			  playfieldLeft.style = "position: absolute;background-color: #000000;margin-right: 50%;width: 50%;border-style: none dashed none none;border-color: #ffffff;";
+			  playfieldRight.style = "position: absolute;background-color: #000000;margin-left: 50%;width: 50%;border-style: none none none dashed;border-color: #ffffff;";
+			}
+
+			function ingamenav() {}
+
+			function ball() {
+			  let ballMovement = document.createElement("div");
+			  ballMovement.id("ball_movement");
+			  let ballContainer = document.createElement("div");
+			  ballContainer.id("ball");
+			  var svgns = "http://www.w3.org/2000/svg";
+			  var svgDocument = evt.target.ownerDocument;
+			  var shape = svgDocument.createElementNS(svgns, "circle");
+			  // <circle cx="50" cy="50" r="40" stroke="#000000" stroke-width="4" fill="#00ff00" />
+			  shape.setAttributeNS(null, "cx", 50);
+			  shape.setAttributeNS(null, "cy", 50);
+			  shape.setAttributeNS(null, "r", 40);
+        shape.setAttributeNS(null, "stroke-width", 4);
+			  shape.setAttributesNS(null, "fill", "#ffffff");
+			  ballContainer.appendChild(shape);
+			  ballMovement.appendChild(ballContainer);
+			}
+
+			function paddle(loc) {
+			  let paddleMovement = document.createElement("div");
+			  paddleMovement.id = "paddle_movement_" + loc;
+			  let paddleContainer = document.createElement("div");
+			  paddleContainer.id = "paddle_" + loc;
+			  var svgns = "http://www.w3.org/2000/svg";
+			  var svgDocument = evt.target.ownerDocument;
+			  var shape = svgDocument.createElementNS(svgns, "rect");
+			  // <rect width="50" height="225" style="fill:#ff0000;stroke-width:5;stroke:#000000"/>
+			  shape.setAttributeNS(null, "width", 50);
+			  shape.setAttributeNS(null, "height", 225);
+			  shape.setAttributeNS(null, "stroke", "#000000");
+			  shape.setAttributeNS(null, "stroke-width", 4);
+			  shape.setAttributesNS(null, "fill", "#ffffff");
+			  paddleContainer.appendChild(shape);
+			  paddleMovement.appendChild(paddleContainer);
+			}
+
+			if (typeof(Worker) !== "undefined") {
+			  var webWorkerSupp = "yes"
+			} else {
+			  var webWorkerSupp = "no";
+			}
+			const screenwidth = window.screen.availWidth;
+			const screenheight = window.screen.availHeight;
+			const colordepth = window.screen.colorDepth;
+			const protocol = window.location.protocol;
+			const lang = navigator.language;
+			const online = navigator.onLine;
+			localStorage.setItem("lang", lang);
+			localStorage.setItem("online", online);
+			localStorage.setItem("width", screenwidth);
+			localStorage.setItem("height", screenheight);
+			localStorage.setItem("colorDepth", colordepth);
+			sessionStorage.setItem("protocol", protocol);
+      
+			function load() {
+			  alert("onload has captured");
+			  backdrop();
+			  homePanel();
+        
+			}
+    </script>
+    <title>Pong</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--Font Awesome 5.15.4 MIT license-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
-      body {
-        background-color: #000000;
-      }
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      p {
-        color: #ffffff;
-        font-family: monospace;
-      }
-      .homescreen_panel {
-        z-index: 8;
-        position: absolute;
-        margin-left: 25%;
-        margin-right: 25%;
-        margin-top: 25vh;
-        margin-bottom: 2vh;
-        width: 50vw;
-        height: 50vh;
-        border: 10px solid #ffffff;
-        background-color: #000000;
-        border-radius: 10px;
-      }
-      .play {
-        position: absolute;
-        height: 14.5vh;
-        z-index: 9;
-        border: none;
-        background-color: #ffffff;
-        color: #000000;
-        border-radius: 6px;
-        font-family: monospace;
-        font-size: 10vh;
-        transition: 0.3s;
+      /*
+			body {
+				background-color: #000000;
+			}
+			
+			h1,h2,h3,h4,h5,h6,p {
+				color: #ffffff;
+				font-family: monospace;
+			}
+			
+			.homescreen_panel {
+				z-index: 8;
+				position: absolute;
+				margin-left: 25%;
+				margin-right: 25%;
+				margin-top: 25vh;
+				margin-bottom: 2vh;
+				width: 50vw;
+				height: 50vh;
+				border: 10px solid #ffffff;
+				background-color: #000000;
+				border-radius: 10px;
+			}*/
+
+      #play {
         width: 50%;
         margin-bottom: 1.625vh;
         margin-right: 25%;
         margin-left: 25%;
-        margin-top: 33.875vh;
       }
-      .home {
-        position: absolute;
-        height: 14.5vh;
-        z-index: 9;
-        border: none;
-        background-color: #ffffff;
-        color: #000000;
-        border-radius: 6px;
-        font-family: monospace;
-        font-size: 10vh;
-        transition: 0.3s;
+
+      #home {
         width: 20%;
         margin-bottom: 1.625vh;
         margin-right: auto;
         margin-left: 2.5%;
-        margin-top: 33.875vh;
       }
-      .play:hover,
-      .home:hover {
+
+      #play:hover,
+      #home:hover {
         background-color: #000000;
         color: #ffffff;
         border: 6px solid #ffffff;
       }
+
     </style>
   </head>
-  <body>
-    <div class="homescreen_panel">
-      <button class="play" type="button" onclick="play();">
-        <i class="fas fa-play"></i>Play
-      </button>
-      <button class="home" type="button" onclick="home();">
-        <i class="fas fa-home"></i>
-      </button>
-    </div>
+  <body onload="load()">
+    <!--
+		<div class="homescreen_panel">
+			<button class="play" type="button" onclick="btnclickanm(this); play();">
+				<i class="fas fa-play"></i>Play
+			</button>
+			<button class="home" type="button" onclick="btnclickanm(this); home();">
+				<i class="fas fa-home"></i>
+			</button>
+		</div>
+		
+		<div class="in_game_panel">
+		</div>
+		<div class="ball_movement">
+			<div class="ball">
+				<svg width="100" height="100">
+					<circle cx="50" cy="50" r="40" stroke="#000000" stroke-width="4" fill="#00ff00" />
+				</svg>
+			</div>
+		</div>
+		
+		<div class="team1_movement">
+			<div class="team1">
+				<svg width="50" height="225">
+					<rect width="50" height="225" style="fill:#ff0000;stroke-width:5;stroke:#000000"/>
+				</svg>
+			</div>
+		</div>
+		<div class="team2_movement">
+			<div class="team2">
+				<svg width="50" height="225">
+					<rect width="50" height="225" style="fill:#0000ff;stroke-width:5;stroke:#000000" />
+				</svg>
+			</div>
+		</div>
+	-->
   </body>
   <script>
     function home() {
       location.replace("https://shanmuga1980.github.io/abunchofrandomstuff/")
     }
 
-    function play() {
-      location.replace("https://shanmuga1980.github.io/pong/pong/game")
-    }
   </script>
 </html>
