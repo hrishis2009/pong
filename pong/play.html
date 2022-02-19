@@ -20,7 +20,10 @@
           button.setAttribute("onclick", "home();");
         } else if (id == "play") {
           button.innerHTML = '<i class="fas fa-play"></i>Play';
-        }
+        } else if (id = "info") {
+					button.innerHTML = '<i class="fa-solid fa-question"></i>';
+					button.setAttribute("onclick", "info();");
+				}
         document.getElementById("homescreen_panel").appendChild(button);
         // margin-bottom: 1.625vh; for lower row
         // margin-bottom: 15.75 vh for middle row
@@ -96,6 +99,7 @@
         homePanel();
         homePanelBtn("home");
         homePanelBtn("play");
+				homePanelBtn("info");
       }
 
     </script>
@@ -162,10 +166,29 @@
       }
 
       #play:hover,
-      #home:hover {
+      #home:hover,
+			#info:hover{
         background-color: #000000;
         color: #ffffff;
         border: 6px solid #ffffff;
+      }
+			
+			#info {
+        width: 20%;
+        margin-bottom: 1.625vh;
+        margin-left: 27.5%;
+        margin-right: 2.5%;
+        margin-top: 33.875vh;
+        position: absolute;
+        height: 14.5vh;
+        z-index: 9;
+        border: none;
+        background-color: #ffffff;
+        color: #000000;
+        border-radius: 6px;
+        font-family: monospace;
+        font-size: 10vh;
+        transition: 0.3s;
       }
 
       #gameSpaceLeft {
