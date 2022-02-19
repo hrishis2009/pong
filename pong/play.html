@@ -6,50 +6,21 @@
 				static backdrop() {
 					let backdrop = document.createElement("div");
 					backdrop.id("backdrop");
-					backdrop.style = `
-					position: absolute;
-					z-index: -1;
-					height: 100vh;
-					width: 100vw;
-					background-color: #000000;
-					`;
+					backdrop.style = "position: absolute;z-index: -1;height: 100vh;width: 100vw;background-color: #000000;";
 					document.body.appendChild(backdrop);
 				}
 				
 				static homePanel() {
 					let homescreenPanel = document.createElement("div");
 					homescreenPanel.id("homescreen_panel");
-					homescreenPanel.style = `
-					z-index: 8;
-					position: absolute;
-					margin-left: 25vw;
-					margin-right: 25vw;
-					margin-top: 25vh;
-					margin-bottom: 25vh;
-					width: 50vw;
-					height: 50vh;
-					border: 10px solid #ffffff;
-					background-color: #000000;
-					border-radius: 10px;
-					`;
+					homescreenPanel.style = "z-index: 8;position: absolute;margin-left: 25vw;margin-right: 25vw;margin-top: 25vh;margin-bottom: 25vh;width: 50vw;height: 50vh;border: 10px solid #ffffff;background-color: #000000;border-radius: 10px;";
 					document.getElementById("backdrop").appendChild(homescreenPanel);
 				}
 				
 				static homePanelBtn(id, txt) {
 					let button = document.createElement("button");
 					button.id(id);
-					button.style = `
-					position: absolute;
-					height: 14.5vh;
-					z-index: 9;
-					border: none;
-					background-color: #ffffff;
-					color: #000000;
-					border-radius: 6px;
-					font-family: monospace;
-					font-size: 10vh;
-					transition: 0.3s;
-					`;
+					button.style = "position: absolute;height: 14.5vh;z-index: 9;border: none;background-color: #ffffff;color: #000000;border-radius: 6px;font-family: monospace;font-size: 10vh;transition: 0.3s;";
 					let txt = document.createTextNode(txt);
 					button.appendChild(txt);
 					document.getElementById("homescreen_panel").appendChild(button);
@@ -63,22 +34,10 @@
 					playfieldLeft.id("playfield_left");
 					let playfieldRight = document.createElement("div");
 					playfieldRight.id("playfield_right");
-					playfieldLeft.style = `
-					position: absolute;
-					background-color: #000000;
-					margin-right: 50%;
-					width: 50%;
-					border-style: none dashed none none;
-					border-color: #ffffff;
-					`;
-					playfieldRight.style = `
-					position: absolute;
-					background-color: #000000;
-					margin-left: 50%;
-					width: 50%;
-					border-style: none none none dashed;
-					border-color: #ffffff;
-					`;
+					playfieldLeft.style = "position: absolute;background-color: #000000;margin-right: 50%;width: 50%;border-style: none dashed none none;border-color: #ffffff;
+					";
+					playfieldRight.style = "position: absolute;background-color: #000000;margin-left: 50%;width: 50%;border-style: none none none dashed;border-color: #ffffff;
+					";
 				}
 				
 				static ingamenav() {
