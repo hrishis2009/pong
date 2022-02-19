@@ -7,14 +7,16 @@
 				backdrop.id("backdrop");
 				backdrop.style = "position: absolute;z-index: -1;height: 100vh;width: 100vw;background-color: #000000;";
 				document.body.appendChild(backdrop);
-				}
+				alert("backdrop has been made");
+			}
 				
-				function homePanel() {
-					let homescreenPanel = document.createElement("div");
-					homescreenPanel.id("homescreen_panel");
-					homescreenPanel.style = "z-index: 8;position: absolute;margin-left: 25vw;margin-right: 25vw;margin-top: 25vh;margin-bottom: 25vh;width: 50vw;height: 50vh;border: 10px solid #ffffff;background-color: #000000;border-radius: 10px;";
-					document.getElementById("backdrop").appendChild(homescreenPanel);
-				}
+			function homePanel() {
+				let homescreenPanel = document.createElement("div");
+				homescreenPanel.id("homescreen_panel");
+				homescreenPanel.style = "z-index: 8;position: absolute;margin-left: 25vw;margin-right: 25vw;margin-top: 25vh;margin-bottom: 25vh;width: 50vw;height: 50vh;border: 10px solid #ffffff;background-color: #000000;border-radius: 10px;";
+				document.getElementById("backdrop").appendChild(homescreenPanel);
+				alert("homescreen panel has been made");
+			}
 				
 				function homePanelBtn(id, txt) {
 					let button = document.createElement("button");
@@ -99,6 +101,7 @@
 			localStorage.setItem("web_worker_support", webWorkerSupp);
 			
 			function load() {
+				alert("onload has captured");
 				backdrop();
 				homePanel();
 			}
