@@ -2,22 +2,21 @@
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<script>
-			class Create {
-				static backdrop() {
-					let backdrop = document.createElement("div");
-					backdrop.id("backdrop");
-					backdrop.style = "position: absolute;z-index: -1;height: 100vh;width: 100vw;background-color: #000000;";
-					document.body.appendChild(backdrop);
+			function backdrop() {
+				let backdrop = document.createElement("div");
+				backdrop.id("backdrop");
+				backdrop.style = "position: absolute;z-index: -1;height: 100vh;width: 100vw;background-color: #000000;";
+				document.body.appendChild(backdrop);
 				}
 				
-				static homePanel() {
+				function homePanel() {
 					let homescreenPanel = document.createElement("div");
 					homescreenPanel.id("homescreen_panel");
 					homescreenPanel.style = "z-index: 8;position: absolute;margin-left: 25vw;margin-right: 25vw;margin-top: 25vh;margin-bottom: 25vh;width: 50vw;height: 50vh;border: 10px solid #ffffff;background-color: #000000;border-radius: 10px;";
 					document.getElementById("backdrop").appendChild(homescreenPanel);
 				}
 				
-				static homePanelBtn(id, txt) {
+				function homePanelBtn(id, txt) {
 					let button = document.createElement("button");
 					button.id(id);
 					button.style = "position: absolute;height: 14.5vh;z-index: 9;border: none;background-color: #ffffff;color: #000000;border-radius: 6px;font-family: monospace;font-size: 10vh;transition: 0.3s;";
@@ -29,7 +28,7 @@
 					// margin-top: 1.625vh for top row
 				}
 				
-				static playfields() {
+				function playfields() {
 					let playfieldLeft = document.creatElement("div");
 					playfieldLeft.id("playfield_left");
 					let playfieldRight = document.createElement("div");
@@ -40,10 +39,10 @@
 					";
 				}
 				
-				static ingamenav() {
+				function ingamenav() {
 				}
 				
-				static ball() {
+				function ball() {
 					let ballMovement = document.createElement("div");
 					ballMovement.id("ball_movement");
 					let ballContainer = document.createElement("div");
@@ -62,7 +61,7 @@
 					ballMovement.appendChild(ballContainer);
 				}
 				
-				static paddle(loc) {
+				function paddle(loc) {
 					let paddleMovement = document.createElement("div");
 					paddleMovement.id("paddle_movement_" + loc);
 					let paddleContainer = document.createElement("div");
@@ -79,10 +78,9 @@
 					paddleContainer.appendChild(shape);
 					paddleMovement.appendChild(paddleContainer);
 				}
-			}
 			
-			Create.backdrop();
-			Create.homePanel();
+			backdrop();
+			homePanel();
 			
 			if (typeof(Worker) !== "undefined") {
 				const webWorkerSupp = "yes"
