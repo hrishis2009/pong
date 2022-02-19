@@ -2,18 +2,18 @@
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <script>
-			function backdrop() {
-			  document.body.style = "background-color: #000000";
-			}
+      function backdrop() {
+        document.body.style = "background-color: #000000";
+      }
 
-			function homePanel() {
-			  let homescreenPanel = document.createElement("div");
-			  homescreenPanel.setAttribute("id", "homescreen_panel");
-			  document.body.appendChild(homescreenPanel);
-			}
+      function homePanel() {
+        let homescreenPanel = document.createElement("div");
+        homescreenPanel.setAttribute("id", "homescreen_panel");
+        document.body.appendChild(homescreenPanel);
+      }
 
-			function homePanelBtn(id) {
-			  let button = document.createElement("button");
+      function homePanelBtn(id) {
+        let button = document.createElement("button");
         button.setAttribute("id", id);
         if (id == "home") {
           button.innerHTML = '<i class="fas fa-home"></i>';
@@ -21,83 +21,83 @@
         } else if (id == "play") {
           button.innerHTML = '<i class="fas fa-play"></i>Play';
         }
-			  document.getElementById("homescreen_panel").appendChild(button);
-			  // margin-bottom: 1.625vh; for lower row
-			  // margin-bottom: 15.75 vh for middle row
-			}
-
-			function playfields() {
-			  let playfieldLeft = document.creatElement("div");
-			  playfieldLeft.setAttribute("id", "playfield_left");
-			  let playfieldRight = document.createElement("div");
-			  playfieldRight.setAttribute("id", "playfield_right");
-			  playfieldLeft.style = "position: absolute;background-color: #000000;margin-right: 50%;width: 50%;border-style: none dashed none none;border-color: #ffffff;";
-			  playfieldRight.style = "position: absolute;background-color: #000000;margin-left: 50%;width: 50%;border-style: none none none dashed;border-color: #ffffff;";
-			}
-
-			function ingamenav() {
+        document.getElementById("homescreen_panel").appendChild(button);
+        // margin-bottom: 1.625vh; for lower row
+        // margin-bottom: 15.75 vh for middle row
       }
 
-			function ball() {
-			  let ballMovement = document.createElement("div");
-			  ballMovement.id("ball_movement");
-			  let ballContainer = document.createElement("div");
-			  ballContainer.id("ball");
-			  var svgns = "http://www.w3.org/2000/svg";
-			  var svgDocument = evt.target.ownerDocument;
-			  var shape = svgDocument.createElementNS(svgns, "circle");
-			  // <circle cx="50" cy="50" r="40" stroke="#000000" stroke-width="4" fill="#00ff00" />
-			  shape.setAttributeNS(null, "cx", 50);
-			  shape.setAttributeNS(null, "cy", 50);
-			  shape.setAttributeNS(null, "r", 40);
-        shape.setAttributeNS(null, "stroke-width", 4);
-			  shape.setAttributesNS(null, "fill", "#ffffff");
-			  ballContainer.appendChild(shape);
-			  ballMovement.appendChild(ballContainer);
-			}
+      function playfields() {
+        let playfieldLeft = document.creatElement("div");
+        playfieldLeft.setAttribute("id", "playfield_left");
+        let playfieldRight = document.createElement("div");
+        playfieldRight.setAttribute("id", "playfield_right");
+        playfieldLeft.style = "position: absolute;background-color: #000000;margin-right: 50%;width: 50%;border-style: none dashed none none;border-color: #ffffff;";
+        playfieldRight.style = "position: absolute;background-color: #000000;margin-left: 50%;width: 50%;border-style: none none none dashed;border-color: #ffffff;";
+      }
 
-			function paddle(loc) {
-			  let paddleMovement = document.createElement("div");
-			  paddleMovement.id = "paddle_movement_" + loc;
-			  let paddleContainer = document.createElement("div");
-			  paddleContainer.id = "paddle_" + loc;
-			  var svgns = "http://www.w3.org/2000/svg";
-			  var svgDocument = evt.target.ownerDocument;
-			  var shape = svgDocument.createElementNS(svgns, "rect");
-			  // <rect width="50" height="225" style="fill:#ff0000;stroke-width:5;stroke:#000000"/>
-			  shape.setAttributeNS(null, "width", 50);
-			  shape.setAttributeNS(null, "height", 225);
-			  shape.setAttributeNS(null, "stroke", "#000000");
-			  shape.setAttributeNS(null, "stroke-width", 4);
-			  shape.setAttributesNS(null, "fill", "#ffffff");
-			  paddleContainer.appendChild(shape);
-			  paddleMovement.appendChild(paddleContainer);
-			}
-	    
-			if (typeof(Worker) !== "undefined") {
-			  var webWorkerSupp = "yes"
-			} else {
-			  var webWorkerSupp = "no";
-			}
-			const screenwidth = window.screen.availWidth;
-			const screenheight = window.screen.availHeight;
-			const colordepth = window.screen.colorDepth;
-			const protocol = window.location.protocol;
-			const lang = navigator.language;
-			const online = navigator.onLine;
-			localStorage.setItem("lang", lang);
-			localStorage.setItem("online", online);
-			localStorage.setItem("width", screenwidth);
-			localStorage.setItem("height", screenheight);
-			localStorage.setItem("colorDepth", colordepth);
-			sessionStorage.setItem("protocol", protocol);
-      
-			function prepareBaseScene() {
-			  backdrop();
-			  homePanel();
-				homePanelBtn("home");
-				homePanelBtn("play");
-			}
+      function ingamenav() {}
+
+      function ball() {
+        let ballMovement = document.createElement("div");
+        ballMovement.id("ball_movement");
+        let ballContainer = document.createElement("div");
+        ballContainer.id("ball");
+        var svgns = "http://www.w3.org/2000/svg";
+        var svgDocument = evt.target.ownerDocument;
+        var shape = svgDocument.createElementNS(svgns, "circle");
+        // <circle cx="50" cy="50" r="40" stroke="#000000" stroke-width="4" fill="#00ff00" />
+        shape.setAttributeNS(null, "cx", 50);
+        shape.setAttributeNS(null, "cy", 50);
+        shape.setAttributeNS(null, "r", 40);
+        shape.setAttributeNS(null, "stroke-width", 4);
+        shape.setAttributesNS(null, "fill", "#ffffff");
+        ballContainer.appendChild(shape);
+        ballMovement.appendChild(ballContainer);
+      }
+
+      function paddle(loc) {
+        let paddleMovement = document.createElement("div");
+        paddleMovement.id = "paddle_movement_" + loc;
+        let paddleContainer = document.createElement("div");
+        paddleContainer.id = "paddle_" + loc;
+        var svgns = "http://www.w3.org/2000/svg";
+        var svgDocument = evt.target.ownerDocument;
+        var shape = svgDocument.createElementNS(svgns, "rect");
+        // <rect width="50" height="225" style="fill:#ff0000;stroke-width:5;stroke:#000000"/>
+        shape.setAttributeNS(null, "width", 50);
+        shape.setAttributeNS(null, "height", 225);
+        shape.setAttributeNS(null, "stroke", "#000000");
+        shape.setAttributeNS(null, "stroke-width", 4);
+        shape.setAttributesNS(null, "fill", "#ffffff");
+        paddleContainer.appendChild(shape);
+        paddleMovement.appendChild(paddleContainer);
+      }
+
+      if (typeof(Worker) !== "undefined") {
+        var webWorkerSupp = "yes"
+      } else {
+        var webWorkerSupp = "no";
+      }
+      const screenwidth = window.screen.availWidth;
+      const screenheight = window.screen.availHeight;
+      const colordepth = window.screen.colorDepth;
+      const protocol = window.location.protocol;
+      const lang = navigator.language;
+      const online = navigator.onLine;
+      localStorage.setItem("lang", lang);
+      localStorage.setItem("online", online);
+      localStorage.setItem("width", screenwidth);
+      localStorage.setItem("height", screenheight);
+      localStorage.setItem("colorDepth", colordepth);
+      sessionStorage.setItem("protocol", protocol);
+
+      function prepareBaseScene() {
+        backdrop();
+        homePanel();
+        homePanelBtn("home");
+        homePanelBtn("play");
+      }
+
     </script>
     <title>Pong</title>
     <meta charset="UTF-8">
@@ -107,22 +107,22 @@
 				License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
 			-->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-		<!--normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css-->
-		<link href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" rel="stylesheet">
+    <!--normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css-->
+    <link href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" rel="stylesheet">
     <style>
-			#homescreen_panel {
-				z-index: 8;
-				position: absolute;
-				margin-left: 25%;
-				margin-right: 25%;
-				margin-top: 25vh;
-				margin-bottom: 2vh;
-				width: 50vw;
-				height: 50vh;
-				border: 10px solid #ffffff;
-				background-color: #000000;
-				border-radius: 10px;
-			}
+      #homescreen_panel {
+        z-index: 8;
+        position: absolute;
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-top: 25vh;
+        margin-bottom: 2vh;
+        width: 50vw;
+        height: 50vh;
+        border: 10px solid #ffffff;
+        background-color: #000000;
+        border-radius: 10px;
+      }
 
       #play {
         width: 50%;
@@ -144,30 +144,30 @@
       }
 
       #home {
-       width: 20%; 
-       margin-bottom: 1.625vh;
-			 margin-right: auto;
-			 margin-left: 2.5%;
-			 margin-top: 33.875vh;
-       position: absolute;
-       height: 14.5vh;
-       z-index: 9;
-       border: none;
-       background-color: #ffffff;
-       color: #000000;
-       border-radius: 6px;
-       font-family: monospace;
-       font-size: 10vh;
-       transition: 0.3s;
+        width: 20%;
+        margin-bottom: 1.625vh;
+        margin-right: auto;
+        margin-left: 2.5%;
+        margin-top: 33.875vh;
+        position: absolute;
+        height: 14.5vh;
+        z-index: 9;
+        border: none;
+        background-color: #ffffff;
+        color: #000000;
+        border-radius: 6px;
+        font-family: monospace;
+        font-size: 10vh;
+        transition: 0.3s;
       }
-			
+
       #play:hover,
       #home:hover {
         background-color: #000000;
         color: #ffffff;
         border: 6px solid #ffffff;
       }
-      
+
       #gameSpaceLeft {
         z-index: -1;
         border-right: dashed #000000;
@@ -175,6 +175,7 @@
         float: left;
         background-color: #000000;
       }
+
       #gameSpaceRight {
         z-index: -1;
         border-left: dashed #000000;
@@ -182,10 +183,12 @@
         float: right;
         background-color: #000000;
       }
+
       #ball_movement {
         width: auto;
         margin: auto;
       }
+
       #team1_movement {
         width: auto;
         margin: auto;
@@ -193,6 +196,7 @@
         margin-top: 50%;
         margin-bottom: 50%;
       }
+
       #team2_movement {
         width: auto;
         margin: auto;
@@ -200,6 +204,7 @@
         margin-top: 50%;
         margin-bottom: 50%;
       }
+
     </style>
   </head>
   <body onload="prepareBaseScene()">
