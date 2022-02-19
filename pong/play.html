@@ -5,8 +5,8 @@
 		<meta charset="UTF-8">
 		<script type="text/javascript">
 			class Create {
-				static backdrop () {
-					const backdrop = document.createElement("div");
+				static backdrop() {
+					let backdrop = document.createElement("div");
 					backdrop.id("backdrop");
 					backdrop.style = `
 					position: absolute;
@@ -18,8 +18,8 @@
 					document.body.appendChild(backdrop);
 				}
 				
-				static homePanel () {
-					const homescreenPanel = document.createElement("div");
+				static homePanel() {
+					let homescreenPanel = document.createElement("div");
 					homescreenPanel.id("homescreen_panel");
 					homescreenPanel.style = `
 					z-index: 8;
@@ -37,8 +37,8 @@
 					document.getElementById("backdrop").appendChild(homescreenPanel);
 				}
 				
-				static homePanelBtn (id, txt) {
-					const button = document.createElement("button");
+				static homePanelBtn(id, txt) {
+					let button = document.createElement("button");
 					button.id(id);
 					button.style = `
 					position: absolute;
@@ -52,7 +52,7 @@
 					font-size: 10vh;
 					transition: 0.3s;
 					`;
-					const txt = document.createTextNode(txt);
+					let txt = document.createTextNode(txt);
 					button.appendChild(txt);
 					document.getElementById("homescreen_panel").appendChild(button);
 					// margin-bottom: 1.625vh; for lower row
@@ -60,10 +60,10 @@
 					// margin-top: 1.625vh for top row
 				}
 				
-				static playfields () {
-					const playfieldLeft = document.creatElement("div");
+				static playfields() {
+					let playfieldLeft = document.creatElement("div");
 					playfieldLeft.id("playfield_left");
-					const playfieldRight = document.createElement("div");
+					let playfieldRight = document.createElement("div");
 					playfieldRight.id("playfield_right");
 					playfieldLeft.style = `
 					position: absolute;
@@ -83,13 +83,13 @@
 					`;
 				}
 				
-				static ingamenav () {
+				static ingamenav() {
 				}
 				
-				static ball () {
-					const ballMovement = document.createElement("div");
+				static ball() {
+					let ballMovement = document.createElement("div");
 					ballMovement.id("ball_movement");
-					const ballContainer = document.createElement("div");
+					let ballContainer = document.createElement("div");
 					ballContainer.id("ball");
 					var svgns = "http://www.w3.org/2000/svg";
 					var svgDocument = evt.target.ownerDocument;
@@ -105,10 +105,10 @@
 					ballMovement.appendChild(ballContainer);
 				}
 				
-				static paddle (loc) {
-					const paddleMovement = document.createElement("div");
+				static paddle(loc) {
+					let paddleMovement = document.createElement("div");
 					paddleMovement.id("paddle_movement_" + loc);
-					const paddleContainer = document.createElement("div");
+					let paddleContainer = document.createElement("div");
 					paddleContainer.id("paddle_" + loc);
 					var svgns = "http://www.w3.org/2000/svg";
 					var svgDocument = evt.target.ownerDocument;
