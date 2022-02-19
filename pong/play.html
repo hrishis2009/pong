@@ -33,6 +33,7 @@
 					background-color: #000000;
 					border-radius: 10px;
 					`;
+					document.getElementById("backdrop").appendChild(homescreenPanel);
 				}
 				
 				static homePanelBtn (id, txt) {
@@ -122,22 +123,8 @@
 				}
 			}
 			
-			Create.backdrop()
-			
-			window.addEventListener("load", Create.homePanel);
-			window.addEventListener("load", function() {Create.homePanelBtn("home",'<i class="fas fa-home"></i>')});
-			
-			
-			function startup() {
-				alert("window onload eventlistener has fired!");
-				const backdrop = create.backdrop();
-				const homePanel = create.homePanel();
-				const playBtn = create.homePanelBtn(play, "Play");
-				const homeBtn = create.homePanelBtn(home, "/f015");
-				append.child(homePanel, backdrop);
-				append.child(playBtn, homePanel);
-				append.child(homeBtn, homePanel);
-			}
+			Create.backdrop();
+			Create.homePanel();
 			
 			if (typeof(Worker) !== "undefined") {
 				const webWorkerSupp = "yes"
@@ -162,10 +149,11 @@
 		<!--Font Awesome 5.15.4 MIT license-->
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 		<style>
+			/*
 			body {
 				background-color: #000000;
 			}
-			/*
+			
 			h1,h2,h3,h4,h5,h6,p {
 				color: #ffffff;
 				font-family: monospace;
