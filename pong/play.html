@@ -20,12 +20,17 @@
           button.setAttribute("onclick", "home();");
         } else if (id == "play") {
           button.innerHTML = '<i class="fas fa-play"></i>Play';
-					button.setAttribute("onclick", "play;");
-        } else if (id = "info") {
+          button.setAttribute("onclick", "play()");
+        } else if (id = "infobtn") {
           button.innerHTML = '<i class="fas fa-question"></i>';
-          button.setAttribute("onclick", "info();");
+          button.setAttribute("onclick", "openInfoPanel();");
+        } else if (id == "statsbtn") {
+          button.innerHTML = '<i class="fas fa-chart-bar"></i>';
+          button.setAttribute("onclick", "openStatsPanel()");
+        } else {
+          console.log("anonymous button created");
         }
-        document.getElementById("homescreen_panel").appendChild(button);
+          document.getElementById("homescreen_panel").appendChild(button);
         // margin-bottom: 1.625vh; for lower row
         // margin-bottom: 15.75 vh for middle row
       }
@@ -100,8 +105,10 @@
         homePanel();
         homePanelBtn("home");
         homePanelBtn("play");
-        homePanelBtn("info");
+        homePanelBtn("infobtn");
+        homePanelBtn("statsbtn");
       }
+
     </script>
     <title>Pong</title>
     <meta charset="UTF-8">
@@ -144,7 +151,7 @@
         font-family: monospace;
         font-size: 10vh;
         transition: 0.3s;
-        z-index: 1999;
+
       }
 
       #home {
@@ -163,21 +170,22 @@
         font-family: monospace;
         font-size: 10vh;
         transition: 0.3s;
-        z-index: 1999;
       }
 
       #play:hover,
       #home:hover,
-      #info:hover {
+      #infobtn:hover,
+      #statsbtn:hover {
         background-color: #000000;
         color: #ffffff;
         border: 6px solid #ffffff;
       }
 
-      #info {
+      #infobtn {
         width: 20%;
-        margin-left: 77.5%;
+        margin-right: auto;
         margin-bottom: 1.625vh;
+        margin-right: 2.5%;
         margin-top: 33.875vh;
         position: absolute;
         height: 14.5vh;
@@ -189,7 +197,24 @@
         font-family: monospace;
         font-size: 10vh;
         transition: 0.3s;
-        z-index: 1999;
+      }
+      
+      #statsbtn {
+        width: 20%;
+        margin-right: auto;
+        margin-top: 1.625vh;
+        margin-right: 2.5%;
+        margin-bottom: 33.875vh;
+        position: absolute;
+        height: 14.5vh;
+        z-index: 9;
+        border: none;
+        background-color: #ffffff;
+        color: #000000;
+        border-radius: 6px;
+        font-family: monospace;
+        font-size: 10vh;
+        transition: 0.3s;
       }
 
       #gameSpaceLeft {
@@ -236,13 +261,13 @@
     function home() {
       location.replace("https://shanmuga1980.github.io/abunchofrandomstuff/")
     }
+    
+    function play() {
+      
+    }
 
-    function info() {
+    function openInfoPanel() {
       alert("this button is still in alpha!");
     }
-		
-		function play() {
-			alert("play function has called!");
-		}
   </script>
 </html>
