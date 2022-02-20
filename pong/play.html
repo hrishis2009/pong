@@ -24,9 +24,6 @@
         } else if (id = "infobtn") {
           button.innerHTML = '<i class="fas fa-question"></i>';
           button.setAttribute("onclick", "openInfoPanel();");
-        } else if (id == "statsbtn") {
-          button.innerHTML = '<i class="fas fa-chart-bar"></i>';
-          button.setAttribute("onclick", "openStatsPanel()");
         } else {
           console.log("anonymous button created");
         }
@@ -106,7 +103,6 @@
         homePanelBtn("home");
         homePanelBtn("play");
         homePanelBtn("infobtn");
-        homePanelBtn("statsbtn");
       }
 
     </script>
@@ -174,8 +170,7 @@
 
       #play:hover,
       #home:hover,
-      #infobtn:hover,
-      #statsbtn:hover {
+      #infobtn:hover {
         background-color: #000000;
         color: #ffffff;
         border: 6px solid #ffffff;
@@ -187,24 +182,6 @@
         margin-bottom: 1.625vh;
         margin-right: 2.5%;
         margin-top: 33.875vh;
-        position: absolute;
-        height: 14.5vh;
-        z-index: 9;
-        border: none;
-        background-color: #ffffff;
-        color: #000000;
-        border-radius: 6px;
-        font-family: monospace;
-        font-size: 10vh;
-        transition: 0.3s;
-      }
-      
-      #statsbtn {
-        width: 20%;
-        margin-right: auto;
-        margin-top: 1.625vh;
-        margin-right: 2.5%;
-        margin-bottom: 33.875vh;
         position: absolute;
         height: 14.5vh;
         z-index: 9;
