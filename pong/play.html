@@ -15,15 +15,22 @@
       function homePanelBtn(id) {
         let button = document.createElement("button");
         button.setAttribute("id", id);
-        if (id == "home") {
-          button.innerHTML = '<i class="fas fa-home"></i>';
-          button.setAttribute("onclick", "home();");
-        } else if (id == "play") {
-          button.innerHTML = '<i class="fas fa-play"></i>Play';
-					button.setAttribute("onclick", "play;");
-        } else if (id = "info") {
-          button.innerHTML = '<i class="fas fa-question"></i>';
-          button.setAttribute("onclick", "info();");
+        switch (id) {
+          case "home":
+            button.innerHTML = '<i class="fas fa-home"></i>';
+            button.setAttribute("onclick", "home();");
+            break;
+          case "play":
+            button.innerHTML = '<i class="fas fa-play"></i>Play';
+            button.setAttribute("onclick", "play;");
+            break;
+          case "info":
+            button.innerHTML = '<i class="fas fa-question"></i>';
+            button.setAttribute("onclick", "openInfo();");
+            break;
+          case "stats":
+            button.innerHTML = '<i class="fas fa-list-ol"></i>';
+            break;
         }
         document.getElementById("homescreen_panel").appendChild(button);
         // margin-bottom: 1.625vh; for lower row
@@ -49,7 +56,6 @@
         var svgns = "http://www.w3.org/2000/svg";
         var svgDocument = evt.target.ownerDocument;
         var shape = svgDocument.createElementNS(svgns, "circle");
-        // <circle cx="50" cy="50" r="40" stroke="#000000" stroke-width="4" fill="#00ff00" />
         shape.setAttributeNS(null, "cx", 50);
         shape.setAttributeNS(null, "cy", 50);
         shape.setAttributeNS(null, "r", 40);
@@ -67,7 +73,6 @@
         var svgns = "http://www.w3.org/2000/svg";
         var svgDocument = evt.target.ownerDocument;
         var shape = svgDocument.createElementNS(svgns, "rect");
-        // <rect width="50" height="225" style="fill:#ff0000;stroke-width:5;stroke:#000000"/>
         shape.setAttributeNS(null, "width", 50);
         shape.setAttributeNS(null, "height", 225);
         shape.setAttributeNS(null, "stroke", "#000000");
@@ -101,6 +106,15 @@
         homePanelBtn("home");
         homePanelBtn("play");
         homePanelBtn("info");
+        homePanelBtn("stats")
+      }
+      
+      function secondaryPanel(type) {
+        let thisPanel = document.createElement("div");
+        thisPanel.setAttribute("id", "secondary_panel");
+        let txttemplate = document.getElementById(type);
+        let txt = txttemplate.content.cloneNode(true);
+        thisPanel.appendChild(txt);
       }
     </script>
     <title>Pong</title>
@@ -116,6 +130,20 @@
     <style>
       #homescreen_panel {
         z-index: 8;
+        position: absolute;
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-top: 25vh;
+        margin-bottom: 2vh;
+        width: 50vw;
+        height: 50vh;
+        border: 10px solid #ffffff;
+        background-color: #000000;
+        border-radius: 10px;
+      }
+      
+      #secondary_panel {
+        z-index: 9;
         position: absolute;
         margin-left: 25%;
         margin-right: 25%;
@@ -168,7 +196,8 @@
 
       #play:hover,
       #home:hover,
-      #info:hover {
+      #info:hover,
+      #stats:hover {
         background-color: #000000;
         color: #ffffff;
         border: 6px solid #ffffff;
@@ -179,6 +208,24 @@
         margin-left: 77.5%;
         margin-bottom: 1.625vh;
         margin-top: 33.875vh;
+        position: absolute;
+        height: 14.5vh;
+        z-index: 9;
+        border: none;
+        background-color: #ffffff;
+        color: #000000;
+        border-radius: 6px;
+        font-family: monospace;
+        font-size: 10vh;
+        transition: 0.3s;
+        z-index: 1999;
+      }
+      
+      #stats {
+        width: 20%;
+        margin-left: 77.5%;
+        margin-top: 1.625vh;
+        margin-bottom: 33.875vh;
         position: absolute;
         height: 14.5vh;
         z-index: 9;
@@ -231,14 +278,18 @@
     </style>
   </head>
   <body onload="prepareBaseScene()">
+    <template id="info">
+      <p>hi im happy!<br>I am sad!</p>
+    </template>
   </body>
   <script>
     function home() {
       location.replace("https://shanmuga1980.github.io/abunchofrandomstuff/")
     }
 
-    function info() {
+    function openInfo() {
       alert("this button is still in alpha!");
+      secondaryPanel("info");
     }
 		
 		function play() {
