@@ -18,12 +18,8 @@
 
   </style>
   <script>
-    function tellPos(p) {
-      document.getElementById("info").innerHTML = 'Position X : ' + p.pageX + '<br />Position Y : ' + p.pageY;
-      document.cookie = "hi: hi";
-    }
-    addEventListener('mousemove', tellPos, false);
-
+    var height = screen.availHeight;
+    alert(height + "px");
   </script>
 
   <body>
