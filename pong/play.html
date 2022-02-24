@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <script>
+    <script id="set_stage">
       function backdrop() {
         document.body.style = "background-color: #000000";
       }
@@ -22,7 +22,7 @@
             break;
           case "play":
             button.innerHTML = '<i class="fas fa-play"></i>Play';
-            button.setAttribute("onclick", "play;");
+            button.setAttribute("onclick", "play();");
             break;
           case "info":
             button.innerHTML = '<i class="fas fa-question"></i>';
@@ -30,6 +30,7 @@
             break;
           case "stats":
             button.innerHTML = '<i class="fas fa-list-ol"></i>';
+						button.setAttribute("onclick", "openStats();");
             break;
         }
         document.getElementById("homescreen_panel").appendChild(button);
@@ -99,7 +100,6 @@
       localStorage.setItem("height", screenheight);
       localStorage.setItem("colorDepth", colordepth);
       sessionStorage.setItem("protocol", protocol);
-
       function prepareBaseScene() {
         backdrop();
         homePanel();
@@ -116,6 +116,34 @@
         let txt = txttemplate.content.cloneNode(true);
         thisPanel.appendChild(txt);
       }
+			
+			function home() {
+				location.replace("https://shanmuga1980.github.io/abunchofrandomstuff/")
+			}
+		</script>
+		<script id="play_rules">
+			var playing = false;
+			var lost = false;
+			var score = 0;
+			const playerPaddle = document.getElementById("team2_movement");
+			const body = document.querySelector("body");
+			
+			function play() {
+				playing = true;
+				// body.removeChild
+			}
+			
+			onkeydown = function(e) {
+				if (e.key == "Enter") {
+					if (playing != true) {
+						play();
+					}
+				}
+				if (playing == true) {
+					if (e.key == "ArrowUp") {
+						playerPaddle.style.bottom += 10 + "px";
+				}
+			}
     </script>
     <title>Pong</title>
     <meta charset="UTF-8">
@@ -271,25 +299,12 @@
       #team2_movement {
         width: auto;
         margin: auto;
-        margin-left: 45%;
-        margin-top: 50%;
-        margin-bottom: 50%;
+        margin-right: 5%;
+        margin-top: 396.5px;
+        margin-bottom: 396.5px;;
       }
     </style>
   </head>
   <body onload="prepareBaseScene()">
-    <template id="infoPanelNode">
-      <p>hi im happy!<br>I am sad!</p>
-    </template>
   </body>
-  <script>
-    function home() {
-      location.replace("https://shanmuga1980.github.io/abunchofrandomstuff/")
-    }
-
-    function openInfo() {
-      alert("this button is still in alpha!");
-      secondaryPanel("infoPanelNode");
-    }
-  </script>
 </html>
