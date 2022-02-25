@@ -125,12 +125,15 @@
 			var playing = false;
 			var lost = false;
 			var score = 0;
-			const playerPaddle = document.getElementById("team2_movement");
+			const playerPaddle = document.getElementById("paddle_movement_2");
 			const body = document.querySelector("body");
 			
 			function play() {
 				playing = true;
-				// body.removeChild
+				while (body.hasChildNodes()) {
+          body.removeChild(body.firstChild);
+        }
+        
 			}
 			
 			onkeydown = function(e) {
@@ -288,7 +291,7 @@
         margin: auto;
       }
 
-      #team1_movement {
+      #paddle_movement_1 {
         width: auto;
         margin: auto;
         margin-left: 5%;
@@ -296,7 +299,7 @@
         margin-bottom: 50%;
       }
 
-      #team2_movement {
+      #paddle_movement_2 {
         width: auto;
         margin: auto;
         margin-right: 5%;
