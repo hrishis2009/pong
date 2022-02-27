@@ -1,152 +1,141 @@
 <!DOCTYPE html>
-<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html>
+
   <head>
     <script id="set_stage">
-      function backdrop() {
-        document.body.style = "background-color: #000000";
-      }
+      class Create {
 
-      function homePanel() {
-        let homescreenPanel = document.createElement("div");
-        homescreenPanel.setAttribute("id", "homescreen_panel");
-        document.body.appendChild(homescreenPanel);
-      }
-
-      function homePanelBtn(id) {
-        let button = document.createElement("button");
-        button.setAttribute("id", id);
-        switch (id) {
-          case "home":
-            button.innerHTML = '<i class="fas fa-home"></i>';
-            button.setAttribute("onclick", "home();");
-            break;
-          case "play":
-            button.innerHTML = '<i class="fas fa-play"></i>Play';
-            button.setAttribute("onclick", "play();");
-            break;
-          case "info":
-            button.innerHTML = '<i class="fas fa-question"></i>';
-            button.setAttribute("onclick", "openInfo();");
-            break;
-          case "stats":
-            button.innerHTML = '<i class="fas fa-list-ol"></i>';
-						button.setAttribute("onclick", "openStats();");
-            break;
+        static backdrop() {
+          document.body.style = "background-color: #000000";
         }
-        document.getElementById("homescreen_panel").appendChild(button);
-        // margin-bottom: 1.625vh; for lower row
-        // margin-bottom: 15.75 vh for middle row
+
+        static homePanel() {
+          let homescreenPanel = document.createElement("div");
+          homescreenPanel.setAttribute("id", "homescreen_panel");
+          document.body.appendChild(homescreenPanel);
+        }
+
+        static homePanelBtn(id) {
+          let button = document.createElement("button");
+          button.setAttribute("id", id);
+          switch (id) {
+            case "home":
+              button.innerHTML = '<i class="fas fa-home"></i>';
+              button.setAttribute("onclick", "home();");
+              break;
+            case "play":
+              button.innerHTML = '<i class="fas fa-play"></i>Play';
+              button.setAttribute("onclick", "play();");
+              break;
+            case "info":
+              button.innerHTML = '<i class="fas fa-question"></i>';
+              button.setAttribute("onclick", "openInfo();");
+              break;
+            case "stats":
+              button.innerHTML = '<i class="fas fa-list-ol"></i>';
+              button.setAttribute("onclick", "openStats();");
+              break;
+          }
+          document.getElementById("homescreen_panel").appendChild(button);
+          // margin-bottom: 1.625vh; for lower row
+          // margin-bottom: 15.75 vh for middle row
+        }
+
+        static playfields() {
+          let playfieldLeft = document.creatElement("div");
+          playfieldLeft.setAttribute("id", "playfield_left");
+          let playfieldRight = document.createElement("div");
+          playfieldRight.setAttribute("id", "playfield_right");
+          playfieldLeft.style = "position: absolute;background-color: #000000;margin-right: 50%;width: 50%;border-style: none dashed none none;border-color: #ffffff;";
+          playfieldRight.style = "position: absolute;background-color: #000000;margin-left: 50%;width: 50%;border-style: none none none dashed;border-color: #ffffff;";
+        }
+
+        static ingamenav() {}
+
+        static ball() {
+          let ballMovement = document.createElement("div");
+          ballMovement.id("ball_movement");
+          let ballContainer = document.createElement("div");
+          ballContainer.id("ball");
+          var svgns = "http://www.w3.org/2000/svg";
+          var svgDocument = evt.target.ownerDocument;
+          var shape = svgDocument.createElementNS(svgns, "circle");
+          shape.setAttributeNS(null, "cx", 50);
+          shape.setAttributeNS(null, "cy", 50);
+          shape.setAttributeNS(null, "r", 40);
+          shape.setAttributeNS(null, "stroke-width", 4);
+          shape.setAttributesNS(null, "fill", "#ffffff");
+          ballContainer.appendChild(shape);
+          ballMovement.appendChild(ballContainer);
+        }
+
+        static paddle(loc) {
+          let paddleMovement = document.createElement("div");
+          paddleMovement.id = "paddle_movement_" + loc;
+          let paddleContainer = document.createElement("div");
+          paddleContainer.id = "paddle_" + loc;
+          var svgns = "http://www.w3.org/2000/svg";
+          var svgDocument = evt.target.ownerDocument;
+          var shape = svgDocument.createElementNS(svgns, "rect");
+          shape.setAttributeNS(null, "width", 50);
+          shape.setAttributeNS(null, "height", 225);
+          shape.setAttributeNS(null, "stroke", "#000000");
+          shape.setAttributeNS(null, "stroke-width", 4);
+          shape.setAttributesNS(null, "fill", "#ffffff");
+          paddleContainer.appendChild(shape);
+          paddleMovement.appendChild(paddleContainer);
+        }
+
+        static secondaryPanel(type) {
+          let thisPanel = document.createElement("div");
+          thisPanel.setAttribute("id", "secondary_panel");
+          let txttemplate = document.getElementById(type);
+          let txt = txttemplate.content.cloneNode(true);
+          thisPanel.appendChild(txt);
+        }
       }
 
-      function playfields() {
-        let playfieldLeft = document.creatElement("div");
-        playfieldLeft.setAttribute("id", "playfield_left");
-        let playfieldRight = document.createElement("div");
-        playfieldRight.setAttribute("id", "playfield_right");
-        playfieldLeft.style = "position: absolute;background-color: #000000;margin-right: 50%;width: 50%;border-style: none dashed none none;border-color: #ffffff;";
-        playfieldRight.style = "position: absolute;background-color: #000000;margin-left: 50%;width: 50%;border-style: none none none dashed;border-color: #ffffff;";
-      }
-
-      function ingamenav() {}
-
-      function ball() {
-        let ballMovement = document.createElement("div");
-        ballMovement.id("ball_movement");
-        let ballContainer = document.createElement("div");
-        ballContainer.id("ball");
-        var svgns = "http://www.w3.org/2000/svg";
-        var svgDocument = evt.target.ownerDocument;
-        var shape = svgDocument.createElementNS(svgns, "circle");
-        shape.setAttributeNS(null, "cx", 50);
-        shape.setAttributeNS(null, "cy", 50);
-        shape.setAttributeNS(null, "r", 40);
-        shape.setAttributeNS(null, "stroke-width", 4);
-        shape.setAttributesNS(null, "fill", "#ffffff");
-        ballContainer.appendChild(shape);
-        ballMovement.appendChild(ballContainer);
-      }
-
-      function paddle(loc) {
-        let paddleMovement = document.createElement("div");
-        paddleMovement.id = "paddle_movement_" + loc;
-        let paddleContainer = document.createElement("div");
-        paddleContainer.id = "paddle_" + loc;
-        var svgns = "http://www.w3.org/2000/svg";
-        var svgDocument = evt.target.ownerDocument;
-        var shape = svgDocument.createElementNS(svgns, "rect");
-        shape.setAttributeNS(null, "width", 50);
-        shape.setAttributeNS(null, "height", 225);
-        shape.setAttributeNS(null, "stroke", "#000000");
-        shape.setAttributeNS(null, "stroke-width", 4);
-        shape.setAttributesNS(null, "fill", "#ffffff");
-        paddleContainer.appendChild(shape);
-        paddleMovement.appendChild(paddleContainer);
-      }
-
-      if (typeof(Worker) !== "undefined") {
-        var webWorkerSupp = "yes"
-      } else {
-        var webWorkerSupp = "no";
-      }
-      const screenwidth = window.screen.availWidth;
-      const screenheight = window.screen.availHeight;
-      const colordepth = window.screen.colorDepth;
-      const protocol = window.location.protocol;
-      const lang = navigator.language;
-      const online = navigator.onLine;
-      localStorage.setItem("lang", lang);
-      localStorage.setItem("online", online);
-      localStorage.setItem("width", screenwidth);
-      localStorage.setItem("height", screenheight);
-      localStorage.setItem("colorDepth", colordepth);
-      sessionStorage.setItem("protocol", protocol);
       function prepareBaseScene() {
-        backdrop();
-        homePanel();
-        homePanelBtn("home");
-        homePanelBtn("play");
-        homePanelBtn("info");
-        homePanelBtn("stats")
+        Create.backdrop();
+        Create.homePanel();
+        Create.homePanelBtn("home");
+        Create.homePanelBtn("play");
+        Create.homePanelBtn("info");
+        Create.homePanelBtn("stats")
       }
-      
-      function secondaryPanel(type) {
-        let thisPanel = document.createElement("div");
-        thisPanel.setAttribute("id", "secondary_panel");
-        let txttemplate = document.getElementById(type);
-        let txt = txttemplate.content.cloneNode(true);
-        thisPanel.appendChild(txt);
+
+      function home() {
+        location.replace("https://shanmuga1980.github.io/abunchofrandomstuff/")
       }
-			
-			function home() {
-				location.replace("https://shanmuga1980.github.io/abunchofrandomstuff/")
-			}
-		</script>
-		<script id="play_rules">
-			var playing = false;
-			var lost = false;
-			var score = 0;
-			const playerPaddle = document.getElementById("paddle_movement_2");
-			const body = document.querySelector("body");
-			
-			function play() {
-				playing = true;
-				while (body.hasChildNodes()) {
+
+    </script>
+    <script id="play_rules">
+      var playing = false;
+      var lost = false;
+      var score = 0;
+      const playerPaddle = document.getElementById("paddle_movement_2");
+      const body = document.querySelector("body");
+
+      function play() {
+        playing = true;
+        while (body.hasChildNodes()) {
           body.removeChild(body.firstChild);
         }
-        
-			}
-			
-			onkeydown = function(e) {
-				if (e.key == "Enter") {
-					if (playing != true) {
-						play();
-					}
-				}
-				if (playing == true) {
-					if (e.key == "ArrowUp") {
-						playerPaddle.style.bottom += 10 + "px";
-				}
-			}
+
+      }
+
+      onkeydown = function(e) {
+          if (e.key == "Enter") {
+            if (playing != true) {
+              play();
+            }
+          }
+          if (playing == true) {
+            if (e.key == "ArrowUp") {
+              playerPaddle.style.bottom += 10 + "px";
+            }
+          }
+
     </script>
     <title>Pong</title>
     <meta charset="UTF-8">
@@ -172,7 +161,7 @@
         background-color: #000000;
         border-radius: 10px;
       }
-      
+
       #secondary_panel {
         z-index: 9;
         position: absolute;
@@ -251,7 +240,7 @@
         transition: 0.3s;
         z-index: 1999;
       }
-      
+
       #stats {
         width: 20%;
         margin-left: 77.5%;
@@ -304,10 +293,14 @@
         margin: auto;
         margin-right: 5%;
         margin-top: 396.5px;
-        margin-bottom: 396.5px;;
+        margin-bottom: 396.5px;
+        ;
       }
+
     </style>
   </head>
+
   <body onload="prepareBaseScene()">
   </body>
+
 </html>
