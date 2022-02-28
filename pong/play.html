@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <script id="set_stage">
       class Create {
@@ -53,18 +54,17 @@
 
         static ball() {
           let ballMovement = document.createElement("div");
-          ballMovement.id("ball_movement");
+          ballMovement.setAttribute("id", "ball_movement");
           let ballContainer = document.createElement("div");
-          ballContainer.id("ball");
-          var svgns = "http://www.w3.org/2000/svg";
-          var svgDocument = evt.target.ownerDocument;
-          var shape = svgDocument.createElementNS(svgns, "circle");
-          shape.setAttributeNS(null, "cx", 50);
-          shape.setAttributeNS(null, "cy", 50);
-          shape.setAttributeNS(null, "r", 40);
-          shape.setAttributeNS(null, "stroke-width", 4);
-          shape.setAttributesNS(null, "fill", "#ffffff");
-          ballContainer.appendChild(shape);
+          ballContainer.setAttribute("id", "ball");
+          let ball = document.createElement("svg");
+          ball.setAttribute("cx", 50);
+          ball.setAttribute("cy", 50);
+          ball.setAttribute("r", 40);
+          ball.setAttribute("stroke-width", 4);
+          ball.setAttribute("fill", "#ffffff");
+          ball.style.display = "block";
+          ballContainer.appendChild(ball);
           ballMovement.appendChild(ballContainer);
         }
 
@@ -104,11 +104,8 @@
       }
 
       function home() {
-        location.replace("https://shanmuga1980.github.io/abunchofrandomstuff/")
+        location.replace("https://shanmuga1980.github.io/abunchofrandomstuff/");
       }
-
-    </script>
-    <script id="play_rules">
       var playing = false;
       var lost = false;
       var score = 0;
@@ -117,23 +114,22 @@
 
       function play() {
         playing = true;
-        while (body.hasChildNodes()) {
-          body.removeChild(body.firstChild);
-        }
-
+        document.getElementById("homescreen_panel").remove();
+        Create.ball();
       }
 
       onkeydown = function(e) {
-          if (e.key == "Enter") {
-            if (playing != true) {
-              play();
-            }
+        if (e.key == "Enter") {
+          if (playing != true) {
+            play();
           }
-          if (playing == true) {
-            if (e.key == "ArrowUp") {
-              playerPaddle.style.bottom += 10 + "px";
-            }
+        }
+        if (playing == true) {
+          if (e.key == "ArrowUp") {
+            playerPaddle.style.bottom += 10 + "px";
           }
+        }
+      }
 
     </script>
     <title>Pong</title>
@@ -293,11 +289,12 @@
         margin-right: 5%;
         margin-top: 396.5px;
         margin-bottom: 396.5px;
-        ;
       }
 
     </style>
   </head>
+
   <body onload="prepareBaseScene()">
   </body>
+
 </html>
