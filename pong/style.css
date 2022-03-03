@@ -1,0 +1,147 @@
+#homescreen_panel {
+    z-index: 8;
+    position: absolute;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 25vh;
+    margin-bottom: 2vh;
+    width: 50vw;
+    height: 50vh;
+    border: 10px solid #fff;
+    background-color: #000;
+    border-radius: 10px;
+}
+
+#secondary_panel {
+    z-index: 9;
+    position: absolute;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 25vh;
+    margin-bottom: 2vh;
+    width: 50vw;
+    height: 50vh;
+    border: 10px solid #fff;
+    background-color: #000;
+    border-radius: 10px;
+}
+
+#play {
+    width: 50%;
+    margin-bottom: 1.625vh;
+    margin-right: 25%;
+    margin-left: 25%;
+    margin-top: 33.875vh;
+    position: absolute;
+    height: 14.5vh;
+    z-index: 9;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 10vh;
+    transition: 0.3s;
+    z-index: 1999;
+}
+
+#home {
+    width: 20%;
+    margin-bottom: 1.625vh;
+    margin-right: auto;
+    margin-left: 2.5%;
+    margin-top: 33.875vh;
+    position: absolute;
+    height: 14.5vh;
+    z-index: 9;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 10vh;
+    transition: 0.3s;
+    z-index: 1999;
+}
+
+#home:hover,
+#info:hover,
+#play:hover,
+#stats:hover {
+    background-color: #000;
+    color: #fff;
+    border: 6px solid #fff;
+}
+
+#info {
+    width: 20%;
+    margin-left: 77.5%;
+    margin-bottom: 1.625vh;
+    margin-top: 33.875vh;
+    position: absolute;
+    height: 14.5vh;
+    z-index: 9;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 10vh;
+    transition: 0.3s;
+    z-index: 1999;
+}
+
+#stats {
+    width: 20%;
+    margin-left: 77.5%;
+    margin-top: 1.625vh;
+    margin-bottom: 33.875vh;
+    position: absolute;
+    height: 14.5vh;
+    z-index: 9;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    border-radius: 6px;
+    font-family: monospace;
+    font-size: 10vh;
+    transition: 0.3s;
+    z-index: 1999;
+}
+
+#gameSpaceLeft {
+    z-index: -1;
+    border-right: dashed #000;
+    width: 50%;
+    float: left;
+    background-color: #000;
+}
+
+#gameSpaceRight {
+    z-index: -1;
+    border-left: dashed #000;
+    width: 50%;
+    float: right;
+    background-color: #000;
+}
+
+#ball_movement {
+    width: auto;
+    margin: auto;
+}
+
+#paddle_movement_1 {
+    width: auto;
+    margin: auto;
+    margin-left: 5%;
+    margin-top: 50%;
+    margin-bottom: 50%;
+}
+
+#paddle_movement_2 {
+    width: auto;
+    margin: auto;
+    margin-right: 5%;
+    margin-top: 396.5px;
+    margin-bottom: 396.5px;
+}
