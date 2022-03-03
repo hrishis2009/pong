@@ -1,15 +1,15 @@
 class PreGame {
-  static backdrop() {
+  backdrop() {
     document.body.style = "background-color: #000000";
   }
 
-  static homePanel() {
+  homePanel() {
     let homescreenPanel = document.createElement("div");
     homescreenPanel.setAttribute("id", "homescreen_panel");
     document.body.appendChild(homescreenPanel);
   }
 
-  static homePanelBtn(id) {
+  homePanelBtn(id) {
     let button = document.createElement("button");
     button.setAttribute("id", id);
     switch (id) {
@@ -35,7 +35,7 @@ class PreGame {
     // margin-bottom: 15.75 vh for middle row
   }
   
-  static secondaryPanel(type) {
+  secondaryPanel(type) {
     let thisPanel = document.createElement("div");
     thisPanel.setAttribute("id", "secondary_panel");
     let txttemplate = document.getElementById(type);
