@@ -1,4 +1,4 @@
-class Create {
+class PreGame {
   static backdrop() {
     document.body.style = "background-color: #000000";
   }
@@ -34,6 +34,26 @@ class Create {
     // margin-bottom: 1.625vh; for lower row
     // margin-bottom: 15.75 vh for middle row
   }
+  
+  static secondaryPanel(type) {
+    let thisPanel = document.createElement("div");
+    thisPanel.setAttribute("id", "secondary_panel");
+    let txttemplate = document.getElementById(type);
+    let txt = txttemplate.content.cloneNode(true);
+    thisPanel.appendChild(txt);
+  }
+  
+  constructor() {
+    this.backdrop();
+    this.homePanel();
+    this.homePanelBtn("home");
+    this.homePanelBtn("play");
+    this.homePanelBtn("stats");
+    this.homePanelBtn("info");
+  }
+}
+
+class Postgame {
 
   static playfields() {
     let playfieldLeft = document.creatElement("div");
@@ -78,12 +98,6 @@ class Create {
     paddleContainer.appendChild(shape);
     paddleMovement.appendChild(paddleContainer);
   }
-
-  static secondaryPanel(type) {
-    let thisPanel = document.createElement("div");
-    thisPanel.setAttribute("id", "secondary_panel");
-    let txttemplate = document.getElementById(type);
-    let txt = txttemplate.content.cloneNode(true);
-    thisPanel.appendChild(txt);
-  }
+  
 }
+
