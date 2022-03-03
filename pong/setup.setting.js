@@ -101,3 +101,6 @@ class Postgame {
   
 }
 
+function prepareBaseScene() {
+ let start = new PreGame();
+}
