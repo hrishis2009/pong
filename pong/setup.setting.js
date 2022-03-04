@@ -101,6 +101,14 @@ class Postgame {
   
 }
 
+// misc functions
+
 function prepareBaseScene() {
  let start = new PreGame();
 }
+
+function home() {
+  location.replace("https://shanmuga1980.github.io/abunchofrandomstuff/");
+}
+
+
