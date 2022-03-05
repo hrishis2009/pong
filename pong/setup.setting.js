@@ -35,7 +35,7 @@ class PreGame {
     // margin-bottom: 15.75 vh for middle row
   }
   
-  secondaryPanel(type) {
+  static secondaryPanel(type) {
     let thisPanel = document.createElement("div");
     thisPanel.setAttribute("id", "secondary_panel");
     let txttemplate = document.getElementById(type);
@@ -53,8 +53,8 @@ class PreGame {
   }
 }
 
-class Postgame {
-
+class Ingame {
+  
   static playfields() {
     let playfieldLeft = document.creatElement("div");
     playfieldLeft.setAttribute("id", "playfield_left");
@@ -108,7 +108,9 @@ function prepareBaseScene() {
 }
 
 function home() {
-  location.replace("https://shanmuga1980.github.io/abunchofrandomstuff/");
+  window.location.assign("https://shanmuga1980.github.io/abunchofrandomstuff/");
 }
 
-
+function openInfo() {
+  Create.secondaryPanel("statsPanel");
+}
