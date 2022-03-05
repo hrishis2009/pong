@@ -135,6 +135,7 @@
 #ball_movement {
     width: auto;
     margin: auto;
+    z-index: 1;
 }
 
 #paddle_movement_1 {
@@ -144,6 +145,7 @@
     margin-left: 5%;
     margin-top: 50vh;
     margin-bottom: 50vh;
+    z-index: 1;
 }
 
 #paddle_movement_2 {
@@ -153,4 +155,5 @@
     margin-right: 5%;
     margin-top: 50vh;
     margin-bottom: 50vh;
+    z-index: 1;
 }
