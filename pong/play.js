@@ -17,7 +17,7 @@ function play() {
     function findHeight(x) {
       const RadAng = x * Math.PI / 180;
       var tan = Math.sin(RadAng) / Math.cos(RadAng);
-      return ball.right * tan
+      return ball.right * tan;
     }
     
     //counter
@@ -39,12 +39,12 @@ function play() {
     document.onkeydown = function(e) {
       if (e.keyCode == 38) {
       // up arrow
-        playerObj.style.top = "+10px"
+        playerObj.style.top = "+10px";
       } 
       
       if (e.keyCode == 40) {
         // down arrow
-        playerObj.style.top = "-10px"
+        playerObj.style.top = "-10px";
       }
     
       function paddleContactTest(div1, div2){
