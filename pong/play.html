@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<!--<script id="set_stage"> function prepareBaseScene(){Create.backdrop(); Create.homePanel(); Create.homePanelBtn("home"); Create.homePanelBtn("play"); Create.homePanelBtn("info"); Create.homePanelBtn("stats"); function home(){location.replace("https://shanmuga1980.github.io/abunchofrandomstuff/");}var playing=false; var lost=false; var score=0; const playerPaddle=document.getElementById("paddle_movement_2"); const body=document.querySelector("body"); function play(){playing=true; document.getElementById("homescreen_panel").remove(); Create.ball();}onkeydown=function(e){if (e.key=="Enter"){if (playing !=true){play();}}if (playing==true){if (e.key=="ArrowUp"){playerPaddle.style.bottom +=10 + "px";}}}</script>-->
 		<title>Pong</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,6 +27,11 @@
 					</div>
 				</div>
 			</div>
+			<div id="ball_movement">
+				<svg>
+					<circle cx="55" cy="55" r="50" stroke="#000000" stroke-width="4" fill="#ffffff" />
+				</svg>
+			</div>
 			<div id ="gameSpaceRight">
 				<div id="paddle_movement_2">
 					<div id="paddle">
@@ -36,11 +40,6 @@
 						</svg>
 					</div>
 				</div>
-			</div>
-			<div id="ball_movement">
-				<svg>
-					<circle cx="55" cy="55" r="50" stroke="#000000" stroke-width="4" fill="#ffffff" />
-				</svg>
 			</div>
 		</template>
 	</body>
