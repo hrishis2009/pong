@@ -1,4 +1,3 @@
-var playing;
 if (playing == true) {
   let playScreen = new Ingame();
   document.getElementById("homescreen_panel").remove();
