@@ -2,7 +2,6 @@ function play() {
   
   alert("play");
   
-  /*
   document.getElementById("homescreen_panel").remove();
   let playScreen = new Ingame();
   var playing = true;
@@ -13,6 +12,7 @@ function play() {
   while (playing) {
     //ball initial movement logic
     var randBallStartMoveAng = Math.floor(Math.random() * 180);
+    
     
     function findHeight(x) {
       const RadAng = x * Math.PI / 180;
