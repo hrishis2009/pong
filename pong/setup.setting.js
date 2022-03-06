@@ -1,3 +1,5 @@
+var playing;
+
 class PreGame {
   backdrop() {
     document.body.style = "background-color: #000000";
@@ -77,4 +79,8 @@ function home() {
 
 function openInfo() {
   Create.secondaryPanel("statsPanel");
+}
+
+function play() {
+  var playing = true;
 }
