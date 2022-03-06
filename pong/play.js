@@ -1,4 +1,8 @@
 function play() {
+  
+  alert("play");
+  
+  /*
   document.getElementById("homescreen_panel").remove();
   let playScreen = new Ingame();
   var playing = true;
@@ -56,5 +60,5 @@ function play() {
       }
     
     // switch case block to bounce if ball hits walls or hits an object
-    }
+    } */
 }
