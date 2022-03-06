@@ -1,4 +1,4 @@
-var playing;
+var playing = false;
 
 class PreGame {
   backdrop() {
