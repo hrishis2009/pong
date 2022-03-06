@@ -61,4 +61,5 @@ function play() {
     
     // switch case block to bounce if ball hits walls or hits an object
     }
+  }
 }
