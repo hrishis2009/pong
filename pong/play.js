@@ -1,6 +1,10 @@
-if (playing == true) {
-  let playScreen = new Ingame();
+function play() {
   document.getElementById("homescreen_panel").remove();
+  let playScreen = new Ingame();
+  playing = true;
+}
+
+while (playing) {
   var score = 0;
   let playerObj = document.getElementById("paddle_movement_2");
   let botPlayer = document.getElementById("paddle_movement_1");
