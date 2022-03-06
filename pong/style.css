@@ -1,9 +1,3 @@
-* {
-  box-sizing: border-box;
-  position: absolute;
-  padding: auto;
-}
-
 #homescreen_panel {
     z-index: 8;
     position: absolute;
@@ -121,6 +115,7 @@
     width: 50%;
     float: left;
     background-color: #000000;
+    box-sizing: border-box;
     
 }
 
@@ -130,12 +125,14 @@
     width: 50%;
     float: right;
     background-color: #000000;
+    box-sizing: border-box;
 }
 
 #ball_movement {
     width: auto;
     margin: auto;
     z-index: 1;
+    box-sizing: border-box;
 }
 
 #paddle_movement_1 {
@@ -146,6 +143,7 @@
     margin-top: 50vh;
     margin-bottom: 50vh;
     z-index: 1;
+    box-sizing: border-box;
 }
 
 #paddle_movement_2 {
@@ -156,4 +154,5 @@
     margin-top: 50vh;
     margin-bottom: 50vh;
     z-index: 1;
+    box-sizing: border-box;
 }
