@@ -80,7 +80,3 @@ function home() {
 function openInfo() {
   Create.secondaryPanel("statsPanel");
 }
-
-function play() {
-  var playing = true;
-}
