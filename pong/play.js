@@ -1,15 +1,17 @@
 function play() {
-  while (document.getElementById("homescreen_panel").hasChildNodes()) {
-    document.getElementById("homescreen_panel").removeChild(document.getElementById("homescreen_panel").childNodes[0]);
-  }
+
   document.getElementById("homescreen_panel").remove();
-  let playScreen = new Ingame();
-  var playing = true;
-  var score = 0;
-  let playerObj = document.getElementById("paddle_movement_2");
-  let botPlayer = document.getElementById("paddle_movement_1");
-  let ball = document.getElementById("ball_movement");
-  while (playing) {
+  function definevar() {
+    let playScreen = new Ingame();
+    var playing = true;
+    var score = 0;
+    let playerObj = document.getElementById("paddle_movement_2");
+    let botPlayer = document.getElementById("paddle_movement_1");
+    let ball = document.getElementById("ball_movement");
+  }
+  /*reduce lag ###MAKE ASYNC TO MAKE PAGE MORE DYNAMIC LATER###*/
+  let timer = setTimeout(definevar(), 500);
+  //while (playing) {
     /*
     //ball initial movement logic
     var randBallStartMoveAng = Math.floor(Math.random() * 180);
@@ -62,5 +64,5 @@ function play() {
     
     // switch case block to bounce if ball hits walls or hits an object
     } */
-  }
+  //}
 }
