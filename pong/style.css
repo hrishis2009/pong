@@ -1,3 +1,7 @@
+body {
+    positon: absolute;
+}
+
 #homescreen_panel {
     z-index: 8;
     position: absolute;
@@ -109,50 +113,54 @@
     z-index: 1999;
 }
 
-#gameSpaceLeft {
+#gameSpaceLeft,
+#gameSpaceRight {
+    position: absolute;
     z-index: -1;
-    border-right: 5px dashed #000000;
     width: 50%;
-    float: left;
     background-color: #000000;
     box-sizing: border-box;
     
 }
 
 #gameSpaceRight {
-    z-index: -1;
     border-left: 5px dashed #000000;
-    width: 50%;
     float: right;
-    background-color: #000000;
-    box-sizing: border-box;
+}
+
+#gameSpaceLeft {
+    border-right: 5px dashed #000000;
+    float: left;
 }
 
 #ball_movement {
+    position: absolute;
     width: auto;
-    margin: auto;
-    z-index: 1;
-    box-sizing: border-box;
-}
-
-#paddle_movement_1 {
-    width: auto;
-    margin: auto;
     margin-right: 95%;
     margin-left: 5%;
     margin-top: 50vh;
     margin-bottom: 50vh;
     z-index: 1;
     box-sizing: border-box;
+    
 }
 
+#paddle_movement_1,
 #paddle_movement_2 {
+    position: relative;
     width: auto;
-    margin: auto;
-    margin-left: 95%;
-    margin-right: 5%;
     margin-top: 50vh;
     margin-bottom: 50vh;
     z-index: 1;
     box-sizing: border-box;
+}
+
+#paddle_movement_1 {
+    margin-right: 90%;
+    margin-left: 10%;
+}
+
+#paddle_movement_2 {
+    margin-left: 90%;
+    margin-right: 10%;
 }
