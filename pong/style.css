@@ -4,20 +4,14 @@ body {
 
 #homescreen_panel {
     z-index: 8;
-    position: absolute;
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-top: 25vh;
-    margin-bottom: 2vh;
-    width: 50vw;
-    height: 50vh;
-    border: 10px solid #fff;
-    background-color: #000;
-    border-radius: 10px;
 }
 
 #secondary_panel {
     z-index: 9;
+}
+
+#homescreen_panel,
+#secondary_panel {
     position: absolute;
     margin-left: 25%;
     margin-right: 25%;
@@ -36,17 +30,6 @@ body {
     margin-right: 25%;
     margin-left: 25%;
     margin-top: 33.875vh;
-    position: absolute;
-    height: 14.5vh;
-    z-index: 9;
-    border: none;
-    background-color: #fff;
-    color: #000;
-    border-radius: 6px;
-    font-family: monospace;
-    font-size: 10vh;
-    transition: 0.3s;
-    z-index: 1999;
 }
 
 #home {
@@ -55,17 +38,20 @@ body {
     margin-right: auto;
     margin-left: 2.5%;
     margin-top: 33.875vh;
-    position: absolute;
-    height: 14.5vh;
-    z-index: 9;
-    border: none;
-    background-color: #fff;
-    color: #000;
-    border-radius: 6px;
-    font-family: monospace;
-    font-size: 10vh;
-    transition: 0.3s;
-    z-index: 1999;
+}
+
+#info {
+    width: 20%;
+    margin-left: 77.5%;
+    margin-bottom: 1.625vh;
+    margin-top: 33.875vh;
+}
+
+#stats {
+    width: 20%;
+    margin-left: 77.5%;
+    margin-top: 1.625vh;
+    margin-bottom: 33.875vh;
 }
 
 #home:hover,
@@ -77,29 +63,10 @@ body {
     border: 6px solid #fff;
 }
 
-#info {
-    width: 20%;
-    margin-left: 77.5%;
-    margin-bottom: 1.625vh;
-    margin-top: 33.875vh;
-    position: absolute;
-    height: 14.5vh;
-    z-index: 9;
-    border: none;
-    background-color: #fff;
-    color: #000;
-    border-radius: 6px;
-    font-family: monospace;
-    font-size: 10vh;
-    transition: 0.3s;
-    z-index: 1999;
-}
-
+#play,
+#home,
+#info,
 #stats {
-    width: 20%;
-    margin-left: 77.5%;
-    margin-top: 1.625vh;
-    margin-bottom: 33.875vh;
     position: absolute;
     height: 14.5vh;
     z-index: 9;
@@ -119,7 +86,7 @@ body {
     z-index: -1;
     width: 50%;
     background-color: #000000;
-    box-sizing: border-box;
+    position: absolute;
     
 }
 
@@ -136,23 +103,18 @@ body {
 #ball_movement {
     position: absolute;
     width: auto;
-    margin-right: 95%;
-    margin-left: 5%;
     margin-top: 50vh;
     margin-bottom: 50vh;
-    z-index: 1;
-    box-sizing: border-box;
-    
+    z-index: 1;    
 }
 
 #paddle_movement_1,
 #paddle_movement_2 {
-    position: relative;
+    position: absolute;
     width: auto;
     margin-top: 50vh;
     margin-bottom: 50vh;
     z-index: 1;
-    box-sizing: border-box;
 }
 
 #paddle_movement_1 {
