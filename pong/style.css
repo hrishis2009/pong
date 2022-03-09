@@ -112,7 +112,7 @@ body {
 
 #paddle_movement_1,
 #paddle_movement_2 {
-    position: absolute;
+    position: relative;
     width: auto;
     margin-top: 50vh;
     margin-bottom: 50vh;
