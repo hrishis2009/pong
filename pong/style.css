@@ -101,10 +101,10 @@ body {
 }
 
 #ball_movement {
-    position: absolute;
+    position: relative;
     width: auto;
-    margin-top: 50vh;
-    margin-bottom: 50vh;
+    margin-top: calc(50vh - 112.5px);
+    margin-bottom: calc(50vh - 112.5px);
     margin-left: 50vh;
     margin-right: 50vh;
     z-index: 1;    
@@ -114,8 +114,8 @@ body {
 #paddle_movement_2 {
     position: relative;
     width: auto;
-    margin-top: 50vh;
-    margin-bottom: 50vh;
+    margin-top: calc(50vh - 112.5px);
+    margin-bottom: calc(50vh - 112.5px);
     z-index: 1;
 }
 
