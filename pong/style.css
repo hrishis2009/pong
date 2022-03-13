@@ -80,51 +80,34 @@ body {
     z-index: 1999;
 }
 
-#gameSpaceLeft,
-#gameSpaceRight {
-    position: absolute;
-    z-index: -1;
-    width: 50%;
-    background-color: #000000;
-    position: absolute;
-    
-}
-
-#gameSpaceRight {
-    border-left: 5px dashed #000000;
-    float: right;
-}
-
-#gameSpaceLeft {
-    border-right: 5px dashed #000000;
-    float: left;
-}
-
 #ball_movement {
-    position: relative;
+    position: absolute;
+    float: center;
     width: auto;
-    margin-top: calc(50vh - 112.5px);
-    margin-bottom: calc(50vh - 112.5px);
-    margin-left: 50vh;
-    margin-right: 50vh;
+    height: auto;
+    margin-top: calc(50vh - 89.5px);
+    margin-bottom: calc(50vh - 89.5px);
+    margin-left: calc(50% - 25px);
+    margin-right: calc(50% - 25px);
     z-index: 1;    
 }
 
 #paddle_movement_1,
 #paddle_movement_2 {
-    position: relative;
+    position: absolute;
     width: auto;
+    height: auto;
     margin-top: calc(50vh - 112.5px);
     margin-bottom: calc(50vh - 112.5px);
     z-index: 1;
 }
 
 #paddle_movement_1 {
-    margin-right: 90%;
-    margin-left: 10%;
+    margin-right: 95%;
+    margin-left: 5%;
 }
 
 #paddle_movement_2 {
-    margin-right: 10%;
-    margin-left: 90%;
+    margin-right: 5%;
+    margin-left: 95%;
 }
