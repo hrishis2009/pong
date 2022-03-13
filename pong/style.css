@@ -1,7 +1,3 @@
-* {
-    box-sizing: border-box;
-}
-
 [hidden] {
     display: none !important;
 }
@@ -12,10 +8,9 @@ body {
     height: 100vh;
 }
 
-template {
+#playscreen_obj {
     width: 100%;
     height: 100vh;
-    position: relative;
 }
 
 #homescreen_panel {
