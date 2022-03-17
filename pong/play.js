@@ -1,6 +1,7 @@
 function play() {
-
+  
   document.getElementById("homescreen_panel").remove();
+  
   function definevar() {
     let playScreen = new Ingame();
     var playing = true;
@@ -8,6 +9,8 @@ function play() {
     let playerObj = document.getElementById("paddle_movement_2");
     let botPlayer = document.getElementById("paddle_movement_1");
     let ball = document.getElementById("ball_movement");
+    document.body.width = getCookie(avwpx);
+    document.body.height = getCookie(avhpx);
   }
   /*reduce lag ###MAKE ASYNC TO MAKE PAGE MORE DYNAMIC LATER###*/
   let timer = setTimeout(definevar(), 500);
