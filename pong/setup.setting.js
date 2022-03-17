@@ -72,8 +72,6 @@ class Ingame {
 function prepareBaseScene() {
     new PreGame();
     setGenCookies();
-    document.body.width = getCookie(avwpx);
-    document.body.height = getCookie(avhpx);
 }
 
 function home() {
