@@ -1,82 +1,85 @@
-var playing = false;
+var playing = !1;
 
-class PreGame {
-  backdrop() {
-    document.body.style = "background-color: #000000";
-  }
-
-  homePanel() {
-    let homescreenPanel = document.createElement("div");
-    homescreenPanel.setAttribute("id", "homescreen_panel");
-    document.body.appendChild(homescreenPanel);
-  }
-
-  homePanelBtn(id) {
-    let button = document.createElement("button");
-    button.setAttribute("id", id);
-    switch (id) {
-      case "home":
-        button.innerHTML = '<i class="fas fa-home"></i>';
-        button.setAttribute("onclick", "home();");
-        break;
-      case "play":
-        button.innerHTML = '<i class="fas fa-play"></i>Play';
-        button.setAttribute("onclick", "play();");
-        break;
-      case "info":
-        button.innerHTML = '<i class="fas fa-question"></i>';
-        button.setAttribute("onclick", "openInfo();");
-        break;
-      case "stats":
-        button.innerHTML = '<i class="fas fa-list-ol"></i>';
-        button.setAttribute("onclick", "openStats();");
-        break;
+function getCookie(e) {
+    let t = e + "=",
+        n = decodeURIComponent(document.cookie).split(";");
+    for (let e = 0; e < n.length; e++) {
+        let o = n[e];
+        for (; " " == o.charAt(0); ) o = o.substring(1);
+        if (0 == o.indexOf(t)) return o.substring(t.length, o.length);
     }
-    document.getElementById("homescreen_panel").appendChild(button);
-    // margin-bottom: 1.625vh; for lower row
-    // margin-bottom: 15.75 vh for middle row
-  }
-  
-  static secondaryPanel(type) {
-    let thisPanel = document.createElement("div");
-    thisPanel.setAttribute("id", "secondary_panel");
-    let txttemplate = document.getElementById(type);
-    let txt = txttemplate.content.cloneNode(true);
-    thisPanel.appendChild(txt);
-  }
-  
-  constructor() {
-    this.backdrop();
-    this.homePanel();
-    this.homePanelBtn("home");
-    this.homePanelBtn("play");
-    this.homePanelBtn("stats");
-    this.homePanelBtn("info");
-  }
+    return "";
 }
 
+function setGenCookies() {
+    let e = screen.availHeight;
+    document.cookie += "avhpx=" + e + ";";
+    let t = screen.availWidth;
+    document.cookie += "avwpx=" + t + ";";
+}
+class PreGame {
+  
+    backdrop() {
+        document.body.style = "background-color: #000000";
+    }
+  
+    homePanel() {
+        let e = document.createElement("div");
+        e.setAttribute("id", "homescreen_panel"), document.body.appendChild(e);
+    }
+  
+    homePanelBtn(e) {
+        let t = document.createElement("button");
+        switch ((t.setAttribute("id", e), e)) {
+            case "home":
+                (t.innerHTML = '<i class="fas fa-home"></i>'), t.setAttribute("onclick", "home();");
+                break;
+            case "play":
+                (t.innerHTML = '<i class="fas fa-play"></i>Play'), t.setAttribute("onclick", "play();");
+                break;
+            case "info":
+                (t.innerHTML = '<i class="fas fa-question"></i>'), t.setAttribute("onclick", "openInfo();");
+                break;
+            case "stats":
+                (t.innerHTML = '<i class="fas fa-list-ol"></i>'), t.setAttribute("onclick", "openStats();");
+        }
+        document.getElementById("homescreen_panel").appendChild(t);
+    }
+  
+    static secondaryPanel(e) {
+        let t = document.createElement("div");
+        t.setAttribute("id", "secondary_panel");
+        let n = document.getElementById(e).content.cloneNode(!0);
+        t.appendChild(n);
+    }
+  
+    constructor() {
+        this.backdrop(), this.homePanel(), this.homePanelBtn("home"), this.homePanelBtn("play"), this.homePanelBtn("stats"), this.homePanelBtn("info");
+    }
+}
 class Ingame {
-  displayScene() {
-    let sceneClass = document.getElementById("playscreen_obj");
-    let newScene = sceneClass.content.cloneNode(true);
-    document.body.appendChild(newScene);
-  }
-  
-  constructor() {
-    this.displayScene();
-  }
+    
+    displayScene() {
+        let e = document.getElementById("playscreen_obj").content.cloneNode(!0);
+        document.body.appendChild(e);
+    }
+    
+    constructor() {
+        this.displayScene();
+    }
 }
-
-// misc functions
 
 function prepareBaseScene() {
- let start = new PreGame();
+    new PreGame();
+    setGenCookies();
+    document.body.width = getCookie(avwpx);
+    document.body.height = getCookie(avhpx);
 }
 
 function home() {
-  window.location.assign("https://shanmuga1980.github.io/abunchofrandomstuff/");
+    window.location.assign("https://shanmuga1980.github.io/abunchofrandomstuff/");
 }
 
 function openInfo() {
-  Create.secondaryPanel("statsPanel");
+    Create.secondaryPanel("statsPanel");
 }
