@@ -99,6 +99,8 @@ body {
     height: auto;
     margin-top: calc(50vh - 89.5px);
     margin-bottom: calc(50vh - 89.5px);
+    margin-left: calc(50vh - 112.5px);
+    margin-right: calc(50vh - 112.5px);
     z-index: 1;    
 }
 
@@ -109,8 +111,6 @@ body {
     height: auto;
     margin-top: calc(50vh - 112.5px);
     margin-bottom: calc(50vh - 112.5px);
-    margin-left: calc(50vh - 112.5px);
-    margin-right: calc(50vh - 112.5px);
     z-index: 1;
 }
 
